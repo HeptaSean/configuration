@@ -1,0 +1,46 @@
+alignment top_left
+minimum_size 375
+maximum_width 375
+gap_x 810
+gap_y 20
+
+update_interval 3600
+text_buffer_size 4096
+
+default_color 9C9C9C
+# Bright Blue (Headings etc.)
+color1 AEAEFB
+# Blue (Structure Information)
+color2 9494D7
+# Yellow (Dynamic Information)
+color3 9E9E59
+# Bright Red (Warnings etc.)
+color4 FF9898
+# Red (Dynamic Information Bad/Old)
+color5 DD8383
+# Green (Dynamic Information Good/New)
+color6 71A971
+
+use_xft yes
+xftfont DejaVu Sans Mono:size=10
+
+double_buffer yes
+own_window yes
+own_window_type override
+own_window_transparent yes
+
+TEXT
+${color1}Last Run: ${exec date +"%F %R"} ${hr 6}
+
+${execp /home/sean/.conky/anconky.py}
+
+${color1}Kernel Versions ${hr 6}
+${execp /home/sean/.conky/kvconky.py}
+
+${color1}Arch Updates Pending ${hr 6}
+${color}Update by: ${color3}yaourt -Sua
+${execp /home/sean/.conky/paconky.py}
+
+${color1}TeXlive Updates Pending ${hr 6}
+${color}Update by: ${color3}sudo tlmgr update --self --all
+${execp /home/sean/.conky/tlconky.py}
