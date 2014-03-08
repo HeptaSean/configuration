@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+    <menu id="xdg-menu" label="Applications" execute="cat /var/cache/xdg-menu/openbox/menu.xml"/>
+	<menu id="openbox-menu" label="Openbox">
+		<item label="Openbox Configuration Manager">
+			<action name="Execute">
+				<command>obconf</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+        </item>
+		<item label="Reconfigure Openbox">
+			<action name="Reconfigure"/>
+		</item>
+    </menu>
+    <menu id="exit-menu" label="Exit">
+        <item label="Lock Screen">
+            <action name="Execute">
+                <command>xdg-screensaver lock</command>
+            </action>
+        </item>
+        <item label="Suspend">
+            <action name="Execute">
+                <command>systemctl suspend</command>
+                <prompt>Are you sure you want to suspend?</prompt>
+            </action>
+        </item>
+        <item label="Hibernate">
+            <action name="Execute">
+                <command>systemctl hibernate</command>
+                <prompt>Are you sure you want to hibernate?</prompt>
+            </action>
+        </item>
+        <item label="Reboot">
+            <action name="Execute">
+                <command>systemctl reboot</command>
+                <prompt>Are you sure you want to reboot?</prompt>
+            </action>
+        </item>
+        <item label="Poweroff">
+            <action name="Execute">
+                <command>systemctl poweroff</command>
+                <prompt>Are you sure you want to poweroff?</prompt>
+            </action>
+        </item>
+        <item label="Exit Openbox">
+            <action name="Exit">
+                <prompt>yes</prompt>
+            </action>
+        </item>
+    </menu>
+    <menu id="root-menu" label="Openbox 3">
+        <item label="urxvt" icon="/usr/share/icons/gnome/16x16/apps/utilities-terminal.png">
+            <action name="Execute">
+                <command>urxvt</command>
+            </action>
+        </item>
+        <item label="Thunderbird" icon="/usr/share/icons/hicolor/16x16/apps/thunderbird.png">
+            <action name="Execute">
+                <command>thunderbird</command>
+            </action>
+        </item>
+        <item label="Chromium" icon="/usr/share/icons/hicolor/16x16/apps/chromium.png">
+            <action name="Execute">
+                <command>chromium</command>
+            </action>
+        </item>
+        <item label="Mumble">
+            <action name="Execute">
+                <command>mumble</command>
+            </action>
+        </item>
+		<menu id="xdg-menu"/>
+        <menu id="openbox-menu"/>
+        <menu id="exit-menu"/>
+	</menu>
+</openbox_menu>

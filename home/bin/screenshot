@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+# Script to take a screenshot with timestamp and save in /tmp.
+# To be used by shortcut of window manager.
+DATE=`date +%Y-%m-%d-%H:%M:%S`
+import -window root "/tmp/screenshot-$DATE.png"

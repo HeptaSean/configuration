@@ -1,0 +1,102 @@
+#!/usr/bin/bash
+# Script to manage applications that need both X and Internet access
+# 
+# Problem:
+# - X applications (e.g., tray apps) that also need access to Internet
+# - Autostarted by X:
+#   not trying hard enough for upcoming network (e.g., Dropbox)
+#   or at least annoying (e.g., animated "trying to connect" of Skype)
+# - Autostarted by network management (e.g., /etc/wicd/scripts):
+#   not started if X is coming up later than network (race condition or
+#   manual startx)
+# 
+# Solution:
+# - Script to start and stop all of these apps together
+# - Tests for both, X and Internet, before starting,
+#   does nothing, otherwise
+# - Appropriate method for all apps to test if (already/still) running to
+#   avoid duplicate instances and error messages
+# - Side benefit: properly start apps with nohup and collect their output
+#   in /tmp/<name>.out
+# - Invoked from X session autostart and network up and down, e.g.:
+#   "xnetapps start"
+#        in ~/.config/openbox/autostart
+#   "su -c 'DISPLAY=:0 /home/<user>/bin/xnetapps start' <user>"
+#        in script in /etc/wicd/scripts/postconnect/
+#   "su -c 'DISPLAY=:0 /home/<user>/bin/xnetapps stop' <user>"
+#        in script in /etc/wicd/scripts/predisconnect
+# 
+# Caveats:
+# - Just tests for running process with name "X", might not be accessible
+#   by the user (need to set DISPLAY or not at all on multi-user/server)
+# - Just tests single HEAD query on "http://www.google.com/", might be
+#   false negative if Google is down or blocked (perhaps replace to liking)
+# - Small race condition if two script instances test for running app at
+#   *exactly* the same time and then *both* try to start/stop it
+# - ps/nohup/killall way to handle apps relies on process name (might
+#   change), /tmp/<name>.out not used otherwise (shamelessly overwritten)
+#   and only one instance on machine (killall kills all [sic!] of them)
+# 
+# Requirements:
+# - /usr/bin/bash    from core/bash (base)
+# - /usr/bin/ps      from core/procps-ng (base)
+# - /usr/bin/curl    from core/curl (dependency of, i.a., pacman itself)
+# 
+# Requirements for standard way to handle apps (like Dropbox and Skype
+# below):
+# - /use/bin/nohup   from core/coreutils (base)
+# - /usr/bin/killall from core/psmisc (base)
+# 
+# Requirements specific to /these/ apps to start:
+# - /usr/bin/dropboxd from aur/dropbox
+# - /usr/bin/skype    from mulitilib/skype
+# - /usr/bin/conky    from extra/conky
+# - own "conkyctl" Python script
+
+# Need full path, at least from /etc/wicd/scripts:
+CONKYCTL="/home/sean/bin/conkyctl"
+
+start_apps() {
+    # Start dropbox if it is not already running
+    [ "$(ps --no-headers -C dropbox)" ] \
+        || nohup dropboxd &> /tmp/dropbox.out &
+    # Start skype if it is not already running
+    [ "$(ps --no-headers -C skype)" ] \
+        || nohup skype &> /tmp/skype.out &
+    # Start conky if it is not already running
+    $CONKYCTL updates running || $CONKYCTL updates start
+}
+
+stop_apps() {
+    # Stop dropbox if it is running
+    [ "$(ps --no-headers -C dropbox)" ] \
+        && killall dropbox
+    # Stop skype if it is running
+    [ "$(ps --no-headers -C skype)" ] \
+        && killall skype
+    # Stop conky if it is running
+    $CONKYCTL updates running && $CONKYCTL updates stop
+}
+
+are_Net_and_X_up() {
+    # Check for process with name "X" and HEAD request on Google:
+    if  [ "$(ps --no-headers -C X)" ] &&
+        curl --silent --head http://www.google.com/ > /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Very minimal initscript-like interface:
+case "$1" in
+    start)
+        are_Net_and_X_up && start_apps
+        ;;
+    stop)
+        stop_apps
+        ;;
+    *)
+        echo "Usage: $0 [start|stop]"
+        exit 1
+esac

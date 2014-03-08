@@ -1,0 +1,15 @@
+_conkyctl() {
+    if [[ "$COMP_CWORD" -eq 1 ]]
+    then
+        local words="$(basename --multiple --suffix=.rc $(ls $HOME/.conky/*.rc))"
+        local cur=${COMP_WORDS[COMP_CWORD]}
+        COMPREPLY=( $(compgen -W "$words" -- $cur) )
+    fi
+    if [[ "$COMP_CWORD" -eq 2 ]]
+    then
+        local words="start stop restart status running"
+        local cur=${COMP_WORDS[COMP_CWORD]}
+        COMPREPLY=( $(compgen -W "$words" -- $cur) )
+    fi
+}
+complete -F _conkyctl conkyctl

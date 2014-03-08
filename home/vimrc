@@ -1,0 +1,49 @@
+set backup                 " save backups ...
+set backupdir=/tmp/        " ... in /tmp
+set directory=/tmp//       " swap files in /tmp (with encoded full path)
+set viminfo+=n/tmp/viminfo " save /viminfo in /tmp
+set undofile               " save undo files ...
+set undodir=/tmp/          " ... in /tmp
+set fileencodings=utf-8    " default to UTF-8 encoding
+set tabstop=4              " tab stops are 4 spaces
+set shiftwidth=4           " automatic indents are also 4 spaces
+set expandtab              " tab stops are expanded to spaces
+set smarttab               " use 'shiftwidth' at beginning of line
+set showcmd                " show partial command in last line
+set number                 " show line number in first columns
+set cursorcolumn           " highlight current column of cursor
+set cursorline             " highlight current line of cursor
+set showmatch              " show matching parentheses
+set hlsearch               " highlight all matches for current search
+set incsearch              " highlight first match for partial search
+set ignorecase             " ignore case in searches, ...
+set smartcase              " ..., but only if pattern has no upper case
+set backspace=1            " backspace over auto indents and line breaks
+set autoindent             " copy indent on <CR>
+set textwidth=75           " set text width to 75 characters ...
+set colorcolumn=+1         " ... and colour the 76th column
+set formatoptions=q        " comment auto-wrapping 'gq' (and only that)
+set foldminlines=0         " also fold one line (for consistency)
+set foldignore=            " also fold comments (for consistency)
+set foldmethod=indent      " use indent for folding
+set nofoldenable           " disable folding at opening
+set wildmenu               " tab completion shows menu of completions
+set mouse=a                " use mouse
+filetype plugin indent on  " load plug-ins and indents based on file types
+set spell spelllang=en_gb  " enable spell checking (default: British)
+set statusline=            " custom status line:
+set statusline+=\[%n]                       " buffer number
+set statusline+=%<                          " truncate here
+set statusline+=\ %t                        " file name
+set statusline+=\ %y                        " file type
+set statusline+=\[%{(&fenc!=''?&fenc:&enc)} " encoding
+set statusline+=%{(&bomb?\",BOM\":\"\")}    " byte order mark?
+set statusline+=,%{&ff}]                    " Unix/DOS line endings
+set statusline+=\[%{&spelllang}]            " current spell check language
+set statusline+=%=                          " beginning of right justified
+set statusline+=%l/%L                       " row/total
+set statusline+=,%c%V                       " col and virtual col
+set statusline+=%(\ %m%)                    " modified?
+set laststatus=2           " always show status line
+syntax on                  " turn syntax highlighting on
+colorscheme hepta

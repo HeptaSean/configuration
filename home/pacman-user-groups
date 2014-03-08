@@ -1,0 +1,139 @@
+[base]
+less-mouse: mouse support
+
+[base-devel]
+
+[multilib-devel]
+gcc-libs-multilib: multilib version
+
+[xorg]
+xorg-xinit
+
+[Base]
+acpi
+alsa-utils
+laptop-mode-tools, lm_sensors: laptop tool
+mlocate
+ntp
+pkgfile, yaourt: package management tool
+polkit: allow user shutdown, reboot, suspend
+pmount: allow user mount
+wicd
+
+[Disk]
+dosfstools, ntfs-3g: Microsoft file system
+efibootmgr, gummiboot: boot manager
+gparted, parted: partition editor
+hdparm
+
+[Fonts]
+ttf-bitstream-vera, ttf-dejavu, ttf-droid, ttf-freefont, ttf-liberation
+ttf-linux-libertine, ttf-ms-fonts, ttf-ubuntu-font-family, ttf-vista-fonts
+
+[Languages]
+aspell-de,    aspell-en,    aspell-fr,    aspell-sv,    aspell
+hunspell-de,  hunspell-en,  hunspell-fr,  hunspell-sv,  hunspell
+hyphen-de,    hyphen-en,    hyphen-fr,    hyphen-sv,    hyphen
+mythes-de,    mythes-en,    mythes-fr,    mythes-sv,    libmythes
+vim-spell-de, vim-spell-en, vim-spell-fr, vim-spell-sv
+
+[Printing]
+canon-cque, cups
+
+[X Environment]
+arandr: manage multiple screens
+conky, feh: desktop background
+dunst, python2-notify: notifications
+openbox: window manager
+python2-xdg: for openbox-xdg-autostart
+obconf: openbox configuration
+archlinux-xdg-menu: generation of application menu
+rxvt-unicode: terminal
+slock: screen locker
+tint2: panel and taskbar
+gvolwheel, wicd-gtk: taskbar applet
+
+[Command Line]
+aha-git: colour ANSI to HTML
+bash-completion: tab completion for bash
+bc: calculator
+colordiff: colour diff tool
+ed: line editor (e.g., for patch)
+gvim: Vim editor
+vim-colorsamplerpack: colour schemes for Vim
+screen: session manager for terminals
+
+[Archive Tools]
+cabextract, p7zip, unrar, unzip, zip
+
+[Network Tools]
+curl, dnsutils, openssh, rsync, smbclient, wget, whois
+
+[Desktop]
+projectlibre
+
+[Browser]
+chromium, chromium-libpdf
+firefox
+opera
+tor-browser-en
+# For all browsers:
+flashplugin: Adobe Flash
+profile-sync-daemon: browser profiles on /tmp
+
+[Communication]
+dropbox, wuala: file synchronisation
+mumble, skype: audio chat
+thunderbird: e-mail
+
+[libreoffice]
+libreoffice-de, libreoffice-en-GB, libreoffice-fr, libreoffice-sv
+
+[Graphics]
+gimp, gpicview, graphviz, imagemagick, inkscape
+
+[Media]
+ffmpeg, libdvdcss, libva-intel-driver, npapi-vlc, vlc
+
+[Security]
+gnupg, keepassx, scrub, truecrypt
+
+[Wine]
+wine, wine-mono, wine_gecko
+
+[Java-Development]
+jdk, jdk-docs
+
+[Python-Development]
+python: core
+python-feedparser: process RSS/Atom feeds
+python-psutil: manage processes
+python-scipy, python-matplotlib, python-numpy: scientific library
+python-cherrypy: Web framework
+python-rdflib: RDF library
+python-sphinx: generate documentation
+sphinxcontrib-programoutput: command output in docs
+bpython, ipython: alternative shell
+
+[Version Control Systems]
+bzr, cvs, git, mercurial, subversion
+
+[Document Creation]
+jabref, texlive-dummy, masterpdfeditor, pdfsam
+
+[Document Viewing]
+acroread, evince, pdfpc
+
+[Make and Manual Dependencies]
+bsdiff: makedepend for acroread
+cabextract: makedepend for ttf-vista-fonts
+cmake: makedepend for pdfpc
+fontconfig: makedepend for ttf-vista-fonts
+gcc-multilib: makedepend for lib32-pangox-compat
+git: makedepend for aha-git and npapi-vlc
+intltool: makedepend for pmount
+libarchive: makedepend for ttf-ms-fonts
+npapi-sdk: makedepend for npapi-vlc
+pangox-compat: manual dependency for Cisco VPN client
+patch: makedepend for less-mouse
+xorg-font-utils: makedepend for ttf-vista-fonts

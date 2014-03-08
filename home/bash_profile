@@ -1,0 +1,9 @@
+#
+# ~/.bash_profile
+#
+
+# Execute ~/.bashrc if it exists:
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# Execute X if on first console:
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx

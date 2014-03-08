@@ -1,4 +1,4 @@
-configuration
-=============
+Configuration Repository
+========================
 
-My configuration files, backup and inspiration
+This repository contains the configuration files of my Arch Linux system.
