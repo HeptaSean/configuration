@@ -33,3 +33,7 @@ power:x:98:
 nobody:x:99:
 users:x:100:
 systemd-journal:x:190:
+avahi:x:84:
+polkitd:x:102:
+git:x:999:
+ntp:x:87:

@@ -121,10 +121,10 @@
 #de_BE@euro ISO-8859-15  
 #de_CH.UTF-8 UTF-8  
 #de_CH ISO-8859-1  
-#de_DE.UTF-8 UTF-8  
+de_DE.UTF-8 UTF-8
 #de_DE ISO-8859-1  
 #de_DE@euro ISO-8859-15  
-#de_LU.UTF-8 UTF-8  
+de_LU.UTF-8 UTF-8
 #de_LU ISO-8859-1  
 #de_LU@euro ISO-8859-15  
 #doi_IN UTF-8  
@@ -143,7 +143,7 @@
 #en_CA ISO-8859-1  
 #en_DK.UTF-8 UTF-8  
 #en_DK ISO-8859-1  
-#en_GB.UTF-8 UTF-8  
+en_GB.UTF-8 UTF-8
 #en_GB ISO-8859-1  
 #en_HK.UTF-8 UTF-8  
 #en_HK ISO-8859-1  
@@ -158,7 +158,7 @@
 #en_PH ISO-8859-1  
 #en_SG.UTF-8 UTF-8  
 #en_SG ISO-8859-1  
-#en_US.UTF-8 UTF-8  
+en_US.UTF-8 UTF-8
 #en_US ISO-8859-1  
 #en_ZA.UTF-8 UTF-8  
 #en_ZA ISO-8859-1  
@@ -228,10 +228,10 @@
 #fr_CA ISO-8859-1  
 #fr_CH.UTF-8 UTF-8  
 #fr_CH ISO-8859-1  
-#fr_FR.UTF-8 UTF-8  
+fr_FR.UTF-8 UTF-8
 #fr_FR ISO-8859-1  
 #fr_FR@euro ISO-8859-15  
-#fr_LU.UTF-8 UTF-8  
+fr_LU.UTF-8 UTF-8
 #fr_LU ISO-8859-1  
 #fr_LU@euro ISO-8859-15  
 #fur_IT UTF-8  
@@ -414,7 +414,7 @@
 #sv_FI.UTF-8 UTF-8  
 #sv_FI ISO-8859-1  
 #sv_FI@euro ISO-8859-15  
-#sv_SE.UTF-8 UTF-8  
+sv_SE.UTF-8 UTF-8
 #sv_SE ISO-8859-1  
 #sw_KE UTF-8  
 #sw_TZ UTF-8  
