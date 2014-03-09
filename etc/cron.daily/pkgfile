@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# nicenesses range from -20 (most favorable scheduling) to 19 (least favorable)
+NICE=19
+
+# 0 for none, 1 for real time, 2 for best-effort, 3 for idle
+IONICE_CLASS=2
+
+# 0-7 (for IONICE_CLASS 1 and 2 only), 0=highest, 7=lowest
+IONICE_PRIORITY=7
+
+COMMAND="/usr/bin/pkgfile --update"
+
+# Update the "whatis" database
+#/usr/bin/makewhatis -u -w
+
+# taken from Debian
+# man-db cron daily
+set -e
+
+if ! [ -d /var/cache/pkgfile ]; then
+    mkdir -p /var/cache/pkgfile
+    chmod 755 /var/cache/pkgfile
+fi
+
+# regenerate man database
+
+if [ -x /usr/bin/nice ]; then
+  COMMAND="/usr/bin/nice -n ${NICE:-19} ${COMMAND}"
+fi
+
+if [ -x /usr/bin/ionice ]; then
+  COMMAND="/usr/bin/ionice -c ${IONICE_CLASS:-2} -n ${IONICE_PRIORITY:-7} ${COMMAND}"
+fi
+
+${COMMAND}
+
+exit 0

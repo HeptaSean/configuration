@@ -1,0 +1,21 @@
+#
+# eduroam-template under /etc/wicd/encryption/templates/eduroam
+# has to be set activated, see also: aur/wicd-eduroam
+#
+# tested for University of Rostock, Germany
+name = eduroam
+author = hølgerssøn, based on the file of Ander Martinez
+version = 2.1
+require identity *Identity password *Password
+-----
+ctrl_interface=/var/run/wpa_supplicant
+network={
+        ssid="$_ESSID"
+        scan_ssid="$_SCAN"
+        key_mgmt=WPA-EAP
+        eap=PEAP
+        pairwise=CCMP TKIP
+        group=CCMP TKIP
+        identity="$_IDENTITY"
+        password="$_PASSWORD"
+}
