@@ -1,0 +1,30 @@
+BootCurrent: 0000
+Timeout: 0 seconds
+BootOrder: 0000,0001,0002,000C,0010,000A
+Boot0000* Arch Linux	HD(1,800,100000,6eb0c56f-8243-456b-95b6-f042d9b1cad6)File(\vmlinuz-linux)i.n.i.t.r.d.=./.i.n.i.t.r.a.m.f.s.-.l.i.n.u.x...i.m.g. .c.r.y.p.t.d.e.v.i.c.e.=./.d.e.v./.s.d.a.2.:.l.v.m.:.a.l.l.o.w.-.d.i.s.c.a.r.d.s. .r.o.o.t.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.r.o.o.t. .r.w. .r.e.s.u.m.e.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.s.w.a.p. .f.b.c.o.n.=.s.c.r.o.l.l.b.a.c.k.:.3.0.0.k...
+Boot0001* Arch Linux (Fallback)	HD(1,800,100000,6eb0c56f-8243-456b-95b6-f042d9b1cad6)File(\vmlinuz-linux)i.n.i.t.r.d.=./.i.n.i.t.r.a.m.f.s.-.l.i.n.u.x.-.f.a.l.l.b.a.c.k...i.m.g. .c.r.y.p.t.d.e.v.i.c.e.=./.d.e.v./.s.d.a.2.:.l.v.m.:.a.l.l.o.w.-.d.i.s.c.a.r.d.s. .r.o.o.t.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.r.o.o.t. .r.w. .r.e.s.u.m.e.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.s.w.a.p. .f.b.c.o.n.=.s.c.r.o.l.l.b.a.c.k.:.3.0.0.k...
+Boot0002* Gummiboot	HD(1,800,100000,6eb0c56f-8243-456b-95b6-f042d9b1cad6)File(\EFI\gummiboot\gummibootx64.efi)
+Boot0003  Boot Menu	
+Boot0004  Setup	
+Boot0005  Diagnostic Splash Screen	
+Boot0006  Lenovo Diagnostics	
+Boot0007  Startup Interrupt Menu	
+Boot0008  ME Configuration Menu	
+Boot0009  Rescue and Recovery	
+Boot000A* USB CD	030a2400d23878bc820f604d8316c068ee79d25b86701296aa5a7848b66cd49dd3ba6a55
+Boot000B* USB FDD	030a2400d23878bc820f604d8316c068ee79d25b6ff015a28830b543a8b8641009461e49
+Boot000C* ATAPI CD0	030a2500d23878bc820f604d8316c068ee79d25baea2090adfde214e8b3a5e471856a35401
+Boot000D* ATA HDD0	030a2500d23878bc820f604d8316c068ee79d25b91af625956449f41a7b91f4f892ab0f600
+Boot000E* ATA HDD1	030a2500d23878bc820f604d8316c068ee79d25b91af625956449f41a7b91f4f892ab0f601
+Boot000F* ATA HDD2	030a2500d23878bc820f604d8316c068ee79d25b91af625956449f41a7b91f4f892ab0f602
+Boot0010* USB HDD	030a2400d23878bc820f604d8316c068ee79d25b33e821aaaf33bc4789bd419f88c50803
+Boot0011* PCI LAN	030a2400d23878bc820f604d8316c068ee79d25b78a84aaf2b2afc4ea79cf5cc8f3d3803
+Boot0012* ATAPI CD1	030a2500d23878bc820f604d8316c068ee79d25baea2090adfde214e8b3a5e471856a35404
+Boot0013  Other CD	030a2500d23878bc820f604d8316c068ee79d25baea2090adfde214e8b3a5e471856a35406
+Boot0014* ATA HDD3	030a2500d23878bc820f604d8316c068ee79d25b91af625956449f41a7b91f4f892ab0f604
+Boot0015  Other HDD	030a2500d23878bc820f604d8316c068ee79d25b91af625956449f41a7b91f4f892ab0f606
+Boot0016* IDER BOOT CDROM	ACPI(a0341d0,0)PCI(16,2)ATAPI(0,1,0)
+Boot0017* IDER BOOT Floppy	ACPI(a0341d0,0)PCI(16,2)ATAPI(0,0,0)
+Boot0018* ATA HDD	030a2400d23878bc820f604d8316c068ee79d25b91af625956449f41a7b91f4f892ab0f6
+Boot0019* ATAPI CD:	030a2400d23878bc820f604d8316c068ee79d25baea2090adfde214e8b3a5e471856a354
+Boot001A* PCI LAN	030a2400d23878bc820f604d8316c068ee79d25b78a84aaf2b2afc4ea79cf5cc8f3d3803
