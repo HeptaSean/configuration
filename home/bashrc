@@ -104,3 +104,6 @@ alias xrandr-off='xrandr --output LVDS1 --auto --output HDMI1 --off\
 alias startx='startx &> /tmp/startx.out'
 alias eclipse='nohup ${HOME}/eclipse/eclipse &> /tmp/eclipse.out &'
 alias wuala='nohup ${HOME}/wuala/wuala &> /tmp/wuala.out &'
+
+# Alias for sudo to preserve environment and expand aliases:
+alias sudo='sudo -E '
