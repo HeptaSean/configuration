@@ -82,7 +82,7 @@ flashplugin: Adobe Flash
 profile-sync-daemon: browser profiles on /tmp
 
 [Communication]
-dropbox, wuala: file synchronisation
+dropbox: file synchronisation
 mumble, skype: audio chat
 thunderbird: e-mail
 
@@ -93,7 +93,8 @@ libreoffice-de, libreoffice-en-GB, libreoffice-fr, libreoffice-sv
 gimp, gpicview, graphviz, imagemagick, inkscape
 
 [Media]
-ffmpeg, libdvdcss, libva-intel-driver, npapi-vlc, vlc
+abcde, cdparanoia, ffmpeg, gvfs, libdvdcss, libva-intel-driver
+npapi-vlc, regionset, vlc
 
 [Security]
 gnupg, keepassx, scrub, truecrypt
@@ -101,10 +102,10 @@ gnupg, keepassx, scrub, truecrypt
 [Wine]
 wine, wine-mono, wine_gecko
 
-[Java-Development]
+[Java Development]
 jdk, jdk-docs
 
-[Python-Development]
+[Python Development]
 python: core
 python-feedparser: process RSS/Atom feeds
 python-psutil: manage processes
@@ -115,14 +116,17 @@ python-sphinx: generate documentation
 sphinxcontrib-programoutput: command output in docs
 bpython, ipython: alternative shell
 
+[Cobol Development]
+herculesstudio, open-cobol
+
 [Version Control Systems]
 bzr, cvs, git, mercurial, subversion
 
 [Document Creation]
-jabref, texlive-dummy, masterpdfeditor, pdfsam
+jabref, flpsed, texlive-dummy, masterpdfeditor, pdfsam
 
 [Document Viewing]
-acroread, evince, pdfpc
+acroread, diffpdf, evince, pdfpc
 
 [Make and Manual Dependencies]
 bsdiff: makedepend for acroread
