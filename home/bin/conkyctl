@@ -23,12 +23,16 @@ def get_process(pid_file):
             try:
                 proc = psutil.Process(pid)
             except:
-                print("Warning: Removing stale PID file %s." % pid_file)
+                print(("Warning: No process with pid {}. " +
+                    "Removing stale PID file {}.").format(
+                        pid, pid_file))
                 os.remove(pid_file)
                 return None
             else:
-                if proc.name != "conky":
-                    print("Warning: Removing stale PID file %s." % pid_file)
+                if proc.name() != "conky":
+                    print(("Warning: Process {} has wrong name '{}'. " +
+                        "Removing stale PID file {}.").format(
+                            pid, proc.name(), pid_file))
                     os.remove(pid_file)
                     return None
                 return proc
@@ -48,51 +52,57 @@ def start_process(rc_file, pid_file, out_file):
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Error: Wrong number of arguments!")
-        print("Usage: %s <configuration> [start|stop|restart|status|running]")
+        print(("Usage: {} <configuration> " +
+            "[start|stop|restart|status|running]").format(
+                os.path.basename(sys.argv[0])))
         sys.exit(1)
     config_name = sys.argv[1]
     rc_file = os.path.join(config_path, config_name + '.rc')
     pid_file = os.path.join(tmp_path, 'conky-' + config_name + '.pid')
     out_file = os.path.join(tmp_path, 'conky-' + config_name + '.out')
     if not os.path.isfile(rc_file):
-        print("Error: %s has to be a Conky configuration file!" % rc_file)
+        print("Error: '{}' has to be a Conky configuration file!".format(
+            rc_file))
         sys.exit(1)
     action = sys.argv[2]
     if action == "start":
         if get_process(pid_file):
-            print("Error: Conky configuration '%s' is already running!" %
-                    config_name)
+            print(("Error: Conky configuration '{}' is " +
+                "already running!").format(config_name))
             sys.exit(1)
         start_process(rc_file, pid_file, out_file)
     elif action == "stop":
         proc = get_process(pid_file)
         if not proc:
-            print("Error: Conky configuration '%s' is not running!" %
-                    config_name)
+            print(("Error: Conky configuration '{}' is " +
+                "not running!").format(config_name))
             sys.exit(1)
         proc.terminate()
         os.remove(pid_file)
     elif action == "restart":
         proc = get_process(pid_file)
         if not proc:
-            print("Warning: Conky configuration '%s' is not running. "
-                    "Starting anyway." % config_name)
+            print(("Warning: Conky configuration '{}' is " +
+                "not running.").format(config_name))
+            print("Starting anyway.")
         else:
             proc.terminate()
             os.remove(pid_file)
         start_process(rc_file, pid_file, out_file)
     elif action == "status":
         if get_process(pid_file):
-            print("Conky configuration '%s' is running." % config_name)
+            print("Conky configuration '{}' is running.".format(
+                config_name))
         else:
-            print("Conky configuration '%s' is not running." % config_name)
+            print("Conky configuration '{}' is not running.".format(
+                config_name))
     elif action == "running":
         if get_process(pid_file):
             sys.exit(0)
         else:
             sys.exit(1)
     else:
-        print("Error: Unkown action '%s', has to be one of "
-                "[start|stop|restart|status|running]!" % action)
+        print("Error: Unkown action '{}'!".format(action))
+        print("Has to be one of [start|stop|restart|status|running].")
         sys.exit(1)
     sys.exit(0)
