@@ -29,7 +29,7 @@
 import subprocess
 
 # Path to tlmgr on your system:
-tlmgr_path = '/usr/local/texlive/2013/bin/x86_64-linux/tlmgr'
+tlmgr_path = '/usr/local/texlive/texlive-dist/bin/x86_64-linux/tlmgr'
 # Length of lines in characters in the calling Conky instance:
 line_width = 46
 # Templates for total number of updates information:

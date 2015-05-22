@@ -57,9 +57,8 @@ if os.path.exists(cache_filename):
     with open(cache_filename, 'rb') as file:
         cached_feed = pickle.load(file)
         modified = cached_feed.modified
-        etag = cached_feed.etag
 
-feed = feedparser.parse(feed_url, modified=modified, etag=etag)
+feed = feedparser.parse(feed_url, modified=modified)
 
 if feed.status == 304:
     feed = cached_feed

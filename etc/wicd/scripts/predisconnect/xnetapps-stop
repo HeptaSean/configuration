@@ -1,2 +1,0 @@
-#!/bin/bash
-su -c 'DISPLAY=:0 TERM=linux /home/sean/bin/xnetapps stop' sean

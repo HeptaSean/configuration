@@ -20,7 +20,6 @@ export LESS_TERMCAP_so=$'\E[33m'
 export LESS_TERMCAP_se=$'\E[0m'
 
 # Defaults and colours for grep:
-export GREP_OPTIONS="--no-messages"
 export GREP_COLORS="mt=07;01;33:fn=35:ln=36:bn=36:se=34"
 
 # Standard programs:
@@ -100,10 +99,20 @@ alias xrandr-vga='xrandr --output LVDS1 --auto --output VGA1 --auto\
 alias xrandr-off='xrandr --output LVDS1 --auto --output HDMI1 --off\
     --output VGA1 --off && eval $(cat ~/.fehbg)'
 
-# Aliases for output to /tmp file:
-alias startx='startx &> /tmp/startx.out'
-alias eclipse='nohup ${HOME}/eclipse/eclipse &> /tmp/eclipse.out &'
-alias wuala='nohup ${HOME}/wuala/wuala &> /tmp/wuala.out &'
-
 # Alias for sudo to preserve environment and expand aliases:
 alias sudo='sudo -E '
+
+# Aliases for netctl:
+alias janeway-start='sudo netctl start janeway'
+alias janeway-stop='sudo netctl stop janeway'
+alias freifunk-start='sudo netctl start freifunk'
+alias freifunk-stop='sudo netctl stop freifunk'
+
+# Aliases for dropbox:
+alias dropbox-start='sudo systemctl start dropbox@sean'
+alias dropbox-stop='sudo systemctl stop dropbox@sean'
+
+# Aliases for Freifunk-APs:
+alias ssh-ff-01='ssh root@2a03:2260:114:ac01:16cc:20ff:fe8a:45f0'
+alias ssh-ff-02='ssh root@2a03:2260:114:ac01:6a72:51ff:fe1a:2de2'
+alias ssh-ff-03='ssh root@2a03:2260:114:ac01:16cc:20ff:fe63:1c2'

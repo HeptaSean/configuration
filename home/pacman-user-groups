@@ -12,23 +12,32 @@ xorg-xinit
 [Base]
 acpi
 alsa-utils
-laptop-mode-tools, lm_sensors: laptop tool
+intel-ucode
+laptop-mode-tools, ethtool, lm_sensors: laptop tool
+lsof
 mlocate
 ntp
-pkgfile, yaourt: package management tool
 polkit: allow user shutdown, reboot, suspend
 pmount: allow user mount
-wicd
+yaourt: package management tool
 
 [Disk]
+cdrkit
 dosfstools, ntfs-3g: Microsoft file system
-efibootmgr, gummiboot: boot manager
+efibootmgr: boot manager
 gparted, parted: partition editor
 hdparm
 
 [Fonts]
-ttf-bitstream-vera, ttf-dejavu, ttf-droid, ttf-freefont, ttf-liberation
-ttf-linux-libertine, ttf-ms-fonts, ttf-ubuntu-font-family, ttf-vista-fonts
+ttf-bitstream-vera
+ttf-dejavu
+ttf-droid
+ttf-freefont
+ttf-liberation
+ttf-linux-libertine
+ttf-ms-fonts
+ttf-ubuntu-font-family
+ttf-vista-fonts
 
 [Languages]
 aspell-de,    aspell-en,    aspell-fr,    aspell-sv,    aspell
@@ -36,9 +45,17 @@ hunspell-de,  hunspell-en,  hunspell-fr,  hunspell-sv,  hunspell
 hyphen-de,    hyphen-en,    hyphen-fr,    hyphen-sv,    hyphen
 mythes-de,    mythes-en,    mythes-fr,    mythes-sv,    libmythes
 vim-spell-de, vim-spell-en, vim-spell-fr, vim-spell-sv
+libreoffice-still-de, libreoffice-still-en-GB
+libreoffice-still-fr, libreoffice-still-sv
 
-[Printing]
-canon-cque, cups
+[Printing and Scanning]
+cups
+foomatic-db
+hplip
+python2-pyqt4
+sane
+xsane
+xsane-gimp
 
 [X Environment]
 arandr: manage multiple screens
@@ -51,29 +68,35 @@ archlinux-xdg-menu: generation of application menu
 rxvt-unicode: terminal
 slock: screen locker
 tint2: panel and taskbar
-gvolwheel, wicd-gtk: taskbar applet
+gvolwheel: taskbar applet
 
 [Command Line]
 aha-git: colour ANSI to HTML
 bash-completion: tab completion for bash
-bc: calculator
 colordiff: colour diff tool
-ed: line editor (e.g., for patch)
+dialog: console menus
 gvim: Vim editor
-vim-colorsamplerpack: colour schemes for Vim
 screen: session manager for terminals
 
 [Archive Tools]
-cabextract, p7zip, unrar, unzip, zip
+cabextract
+p7zip
+unrar
+unzip
+zip
 
 [Network Tools]
-curl, dnsutils, openssh, rsync, smbclient, wget, whois
-
-[Desktop]
-projectlibre
+curl
+dnsutils
+openssh
+rsync
+smbclient
+wget
+whois
+wpa_supplicant
 
 [Browser]
-chromium, chromium-libpdf
+chromium
 firefox
 opera
 tor-browser-en
@@ -83,27 +106,36 @@ profile-sync-daemon: browser profiles on /tmp
 
 [Communication]
 dropbox: file synchronisation
-mumble, skype: audio chat
 thunderbird: e-mail
 
-[libreoffice]
-libreoffice-de, libreoffice-en-GB, libreoffice-fr, libreoffice-sv
-
 [Graphics]
-gimp, gpicview, graphviz, imagemagick, inkscape
+gimp
+gpicview
+graphviz
+imagemagick
+inkscape
 
 [Media]
-abcde, cdparanoia, ffmpeg, gvfs, libdvdcss, libva-intel-driver
-npapi-vlc, regionset, vlc
+abcde
+cdparanoia
+easytag
+ffmpeg
+gvfs
+libdvdcss
+libva-intel-driver
+npapi-vlc
+regionset
+vlc
 
 [Security]
-gnupg, keepassx, scrub, truecrypt
-
-[Wine]
-wine, wine-mono, wine_gecko
+gnupg
+keepassx
+scrub
+truecrypt
 
 [Java Development]
-jdk, jdk-docs
+jdk
+jdk-docs
 
 [Python Development]
 python: core
@@ -116,28 +148,31 @@ python-sphinx: generate documentation
 sphinxcontrib-programoutput: command output in docs
 bpython, ipython: alternative shell
 
-[Cobol Development]
-herculesstudio, open-cobol
-
 [Version Control Systems]
-bzr, cvs, git, mercurial, subversion
+git
+mercurial
 
 [Document Creation]
-jabref, flpsed, texlive-dummy, masterpdfeditor, pdfsam
+jabref
+flpsed
+libreoffice-still
+texlive-dummy
+masterpdfeditor
+pdfsam
 
 [Document Viewing]
-acroread, diffpdf, evince, pdfpc
+acroread
+diffpdf
+evince
+pdfpc
 
 [Make and Manual Dependencies]
 bsdiff: makedepend for acroread
-cabextract: makedepend for ttf-vista-fonts
+cabextract, fontconfig, fontforge, xorg-font-utils: makedepend for ttf-vista-fonts
 cmake: makedepend for pdfpc
-fontconfig: makedepend for ttf-vista-fonts
 gcc-multilib: makedepend for lib32-pangox-compat
 git: makedepend for aha-git and npapi-vlc
 intltool: makedepend for pmount
 libarchive: makedepend for ttf-ms-fonts
 npapi-sdk: makedepend for npapi-vlc
-pangox-compat: manual dependency for Cisco VPN client
 patch: makedepend for less-mouse
-xorg-font-utils: makedepend for ttf-vista-fonts
