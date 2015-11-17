@@ -1,4 +1,4 @@
-URxvt*geometry: 80x64
+URxvt*geometry: 80x64+0+0
 URxvt*background: #000000
 URxvt*foreground: #9C9C9C
 URxvt*color0:     #000000

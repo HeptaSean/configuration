@@ -1,38 +1,27 @@
-alignment top_left
-minimum_size 375
-maximum_width 375
-gap_x 1205
-gap_y 20
+conky.config = {
+    alignment = 'top_left',
+    maximum_width = 375,
+    gap_x = 1205,
+    gap_y = 20,
+    update_interval = 3,
+    show_graph_range = true,
+    default_color = '9C9C9C',
+    color1 = 'AEAEFB',
+    color2 = '9494D7',
+    color3 = '9E9E59',
+    color4 = 'FF9898',
+    color5 = 'DD8383',
+    color6 = '71A971',
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=10',
+    double_buffer = true,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    if_up_strictness = 'address'
+}
 
-update_interval 3
-
-show_graph_range yes
-
-default_color 9C9C9C
-# Bright Blue (Headings etc.)
-color1 AEAEFB
-# Blue (Structure Information)
-color2 9494D7
-# Yellow (Dynamic Information)
-color3 9E9E59
-# Bright Red (Warnings etc.)
-color4 FF9898
-# Red (Dynamic Information Bad/Old)
-color5 DD8383
-# Green (Dynamic Information Good/New)
-color6 71A971
-
-use_xft yes
-xftfont DejaVu Sans Mono:size=10
-
-double_buffer yes
-own_window yes
-own_window_type override
-own_window_transparent yes
-
-if_up_strictness address
-
-TEXT
+conky.text = [[
 ${color1}Time ${hr 6}
 ${color3}${execi 12 date +"%F %R"} ${color}Local
 ${color3}${execi 12 date -u +"%F %R"} ${color}UTC
@@ -47,9 +36,9 @@ ${alignr}${color}Fan speed: ${color3}${ibm_fan} RPM
 ${color1}CPU ${hr 6}
 ${alignr}${color3}${cpu}% ${cpubar 10,275}
 ${color}0: ${color3}${freq 1} MHz \
-${color}– ${color3}${platform coretemp.0 temp 2} °C \
+${color}- ${color3}${platform coretemp.0/hwmon/hwmon2 temp 2} °C \
 ${alignr}${color}1: ${color3}${freq 2} MHz \
-${color}– ${color3}${platform coretemp.0 temp 3} °C
+${color}- ${color3}${platform coretemp.0/hwmon/hwmon2 temp 3} °C
 ${color}${cpugraph 0 60,375 71A971 DD8383 -t -l}
 
 ${color1}Memory ${hr 6}
@@ -86,7 +75,7 @@ ${alignr}${color3}${totalup wlp3s0} ${color}total
 ${endif}
 ${color1}Processes ${hr 6}
 ${color}Total: ${color3}${processes} \
-${color}– Running: ${color3}${running_processes}
+${color}- Running: ${color3}${running_processes}
 ${color2}Top CPU              PID  CPU %  Mem %
 ${color2}1 ${color3}${top name 1} \
 ${color}${top pid 1} ${top cpu 1} ${top mem 1}
@@ -101,3 +90,4 @@ ${color2}2 ${color3}${top_mem name 2} \
 ${color}${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 ${color2}3 ${color3}${top_mem name 3} \
 ${color}${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+]]

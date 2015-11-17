@@ -78,3 +78,5 @@ for entry in range(number_entries):
     print(news_template % (published, wrapped[0]))
     for i in range(1, len(wrapped)):
         print(continued_template % wrapped[i])
+
+print('')

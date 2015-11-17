@@ -1,6 +1,5 @@
-eval $(cat ~/.fehbg)
+~/.fehbg
 tint2 &
 gvolwheel &
 keepassx &
 conkyctl resources start 
-xnetapps start

@@ -1,5 +1,4 @@
 [base]
-less-mouse: mouse support
 
 [base-devel]
 
@@ -87,10 +86,11 @@ zip
 
 [Network Tools]
 curl
-dnsutils
+bind-tools
 openssh
 rsync
 smbclient
+tcpdump
 wget
 whois
 wpa_supplicant
@@ -123,6 +123,7 @@ ffmpeg
 gvfs
 libdvdcss
 libva-intel-driver
+mplayer
 npapi-vlc
 regionset
 vlc
@@ -137,17 +138,6 @@ truecrypt
 jdk
 jdk-docs
 
-[Python Development]
-python: core
-python-feedparser: process RSS/Atom feeds
-python-psutil: manage processes
-python-scipy, python-matplotlib, python-numpy: scientific library
-python-cherrypy: Web framework
-python-rdflib: RDF library
-python-sphinx: generate documentation
-sphinxcontrib-programoutput: command output in docs
-bpython, ipython: alternative shell
-
 [Version Control Systems]
 git
 mercurial
@@ -157,7 +147,6 @@ jabref
 flpsed
 libreoffice-still
 texlive-dummy
-masterpdfeditor
 pdfsam
 
 [Document Viewing]
@@ -166,13 +155,35 @@ diffpdf
 evince
 pdfpc
 
+[Python Development]
+cython: C extensions (?)
+python: core
+python-basemap: map rendering
+python-crypto, python-gnuplot, python-pyx: scapy optional dependencies
+python-feedparser: process RSS/Atom feeds
+python-pillow: imaging library
+python-psutil: manage processes
+python-scipy, python-matplotlib, python-numpy: scientific library
+python-cherrypy: Web framework
+python-rdflib: RDF library
+python-sphinx: generate documentation
+bpython, ipython: alternative shell
+
+[Arduino Development]
+arduino
+fritzing
+
 [Make and Manual Dependencies]
-bsdiff: makedepend for acroread
-cabextract, fontconfig, fontforge, xorg-font-utils: makedepend for ttf-vista-fonts
+boost: makedepend for fritzing
+cabextract: makedepend for ttf-vista-fonts
 cmake: makedepend for pdfpc
+fontconfig: makedepend for ttf-vista-fonts
+fontforge: makedepend for ttf-vista-fonts
 gcc-multilib: makedepend for lib32-pangox-compat
-git: makedepend for aha-git and npapi-vlc
-intltool: makedepend for pmount
+git: makedepend for aha-git
+icoutils: makedepend for arduino
+intltool: makedepend for gvolwheel and pmount
 libarchive: makedepend for ttf-ms-fonts
-npapi-sdk: makedepend for npapi-vlc
-patch: makedepend for less-mouse
+pkg-config: makedepend for lib32-pangox-compat
+vala: makedepend for pdfpc
+xorg-font-utils: makedepend for ttf-vista-fonts
