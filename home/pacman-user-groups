@@ -12,7 +12,7 @@ xorg-xinit
 acpi
 alsa-utils
 intel-ucode
-laptop-mode-tools, ethtool, lm_sensors: laptop tool
+laptop-mode-tools-git, ethtool, lm_sensors: laptop tool
 lsof
 mlocate
 ntp
@@ -117,6 +117,7 @@ inkscape
 
 [Media]
 abcde
+audacity
 cdparanoia
 easytag
 ffmpeg
@@ -167,6 +168,7 @@ python-scipy, python-matplotlib, python-numpy: scientific library
 python-cherrypy: Web framework
 python-rdflib: RDF library
 python-sphinx: generate documentation
+python-pandas
 bpython, ipython: alternative shell
 
 [Arduino Development]

@@ -113,6 +113,6 @@ alias dropbox-start='sudo systemctl start dropbox@sean'
 alias dropbox-stop='sudo systemctl stop dropbox@sean'
 
 # Aliases for Freifunk-APs:
-alias ssh-ff-01='ssh root@2a03:2260:114:ac01:16cc:20ff:fe8a:45f0'
-alias ssh-ff-02='ssh root@2a03:2260:114:ac01:6a72:51ff:fe1a:2de2'
-alias ssh-ff-03='ssh root@2a03:2260:114:ac01:16cc:20ff:fe63:1c2'
+alias ssh-ff-01='ssh root@2a03:2260:114:5:16cc:20ff:fe8a:45f0'
+alias ssh-ff-02='ssh root@2a03:2260:114:5:6a72:51ff:fe1a:2de2'
+alias ssh-ff-03='ssh root@2a03:2260:114:5:16cc:20ff:fe63:1c2'
