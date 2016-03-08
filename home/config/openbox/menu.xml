@@ -66,11 +66,6 @@
                 <command>chromium</command>
             </action>
         </item>
-        <item label="Mumble">
-            <action name="Execute">
-                <command>mumble</command>
-            </action>
-        </item>
 		<menu id="xdg-menu"/>
         <menu id="openbox-menu"/>
         <menu id="exit-menu"/>
