@@ -8,7 +8,7 @@ def walk(repo_path, orig_path):
     for filename in os.listdir(repo_path):
         repo_file = os.path.join(repo_path, filename)
         orig_file = os.path.join(orig_path, filename)
-        orig_dotfile = os.path.join(orig_path, '.' + filename)
+        orig_dotfile = os.path.join(orig_path, "." + filename)
         if os.path.isdir(repo_file):
             if os.path.isdir(orig_file):
                 walk(repo_file, orig_file)
@@ -32,5 +32,9 @@ def walk(repo_path, orig_path):
                 print("Warning: {:s} is a file, but neither {:s} nor {:s} is a file.".format(
                     repo_file, orig_file, orig_dotfile))
 
-walk("etc", "/etc")
-walk("home","/home/sean")
+repo_path = os.path.abspath(os.path.dirname(__file__))
+repo_etc_path = os.path.join(repo_path, "etc")
+repo_home_path = os.path.join(repo_path, "home")
+walk(repo_etc_path, "/etc")
+user_home_path = os.path.expanduser("~")
+walk(repo_home_path, user_home_path)
