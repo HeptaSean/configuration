@@ -3,12 +3,13 @@
 import os
 import filecmp
 import shutil
+import re
 
 def walk(repo_path, orig_path):
-    for filename in os.listdir(repo_path):
-        repo_file = os.path.join(repo_path, filename)
-        orig_file = os.path.join(orig_path, filename)
-        orig_dotfile = os.path.join(orig_path, "." + filename)
+    for repo_filename in os.listdir(repo_path):
+        orig_filename = re.sub('^DOT', '.', repo_filename)
+        repo_file = os.path.join(repo_path, repo_filename)
+        orig_file = os.path.join(orig_path, orig_filename)
         if os.path.islink(repo_file):
             repo_target = os.readlink(repo_file)
             if os.path.islink(orig_file):
@@ -23,21 +24,9 @@ def walk(repo_path, orig_path):
             elif os.path.isdir(orig_file):
                 print("Warning: {:s} is a symlink, but {:s} is a directory.".format(
                     repo_file, orig_file))
-            elif os.path.islink(orig_dotfile):
-                orig_target = os.readlink(orig_dotfile)
-                if repo_target != orig_target:
-                    print ("Linking {:s} to target {:s} of symlink {:s}.".format(
-                        repo_file, orig_target, orig_dotfile))
-                    os.symlink(orig_target, repo_file)
-            elif os.path.isfile(orig_dotfile):
-                print("Warning: {:s} is a symlink, but {:s} is a regular file.".format(
-                    repo_file, orig_dotfile))
-            elif os.path.isdir(orig_dotfile):
-                print("Warning: {:s} is a symlink, but {:s} is a directory.".format(
-                    repo_file, orig_dotfile))
             else:
-                print("Warning: {:s} is a symlink, but {:s} and {:s} are neither symlinks nor directories nor regular files.".format(
-                    repo_file, orig_file, orig_dotfile))
+                print("Warning: {:s} is a symlink, but {:s} is neither a symlink nor a directory nor a regular file.".format(
+                    repo_file, orig_file))
         elif os.path.isdir(repo_file):
             if os.path.islink(orig_file):
                 print("Warning: {:s} is a directory, but {:s} is a symlink.".format(
@@ -47,17 +36,9 @@ def walk(repo_path, orig_path):
                     repo_file, orig_file))
             elif os.path.isdir(orig_file):
                 walk(repo_file, orig_file)
-            elif os.path.islink(orig_dotfile):
-                print("Warning: {:s} is a directory, but {:s} is a symlink.".format(
-                    repo_file, orig_dotfile))
-            elif os.path.isfile(orig_dotfile):
-                print("Warning: {:s} is a directory, but {:s} is a regular file.".format(
-                    repo_file, orig_dotfile))
-            elif os.path.isdir(orig_dotfile):
-                walk(repo_file, orig_dotfile)
             else:
-                print("Warning: {:s} is a directory, but {:s} and {:s} are neither directories nor regular files nor symlinks.".format(
-                    repo_file, orig_file, orig_dotfile))
+                print("Warning: {:s} is a directory, but {:s} is neither a directory nor a regular file nor a symlink.".format(
+                    repo_file, orig_file))
         elif os.path.isfile(repo_file):
             if os.path.islink(orig_file):
                 print("Warning: {:s} is a regular file, but {:s} is a symlink.".format(
@@ -70,20 +51,9 @@ def walk(repo_path, orig_path):
                     print ("Copying {:s} to {:s}.".format(
                         orig_file, repo_file))
                     shutil.copyfile(orig_file, repo_file)
-            elif os.path.islink(orig_dotfile):
-                print("Warning: {:s} is a regular file, but {:s} is a symlink.".format(
-                    repo_file, orig_dotfile))
-            elif os.path.isdir(orig_dotfile):
-                print("Warning: {:s} is a regular file, but {:s} is a directory.".format(
-                    repo_file, orig_dotfile))
-            elif os.path.isfile(orig_dotfile):
-                if not filecmp.cmp(repo_file, orig_dotfile):
-                    print ("Copying {:s} to {:s}.".format(
-                        orig_dotfile, repo_file))
-                    shutil.copyfile(orig_dotfile, repo_file)
             else:
-                print("Warning: {:s} is a regular file, but {:s} and {:s} are neither regular files nor directories nor symlinks.".format(
-                    repo_file, orig_file, orig_dotfile))
+                print("Warning: {:s} is a regular file, but {:s} is neither a regular file nor a directory nor a symlink.".format(
+                    repo_file, orig_file))
 
 repo_path = os.path.abspath(os.path.dirname(__file__))
 repo_etc_path = os.path.join(repo_path, "etc")
