@@ -1,0 +1,6 @@
+Description='Freifunk'
+Interface=wlp3s0
+Connection=wireless
+ESSID='Freifunk'
+Security=none
+IP=dhcp

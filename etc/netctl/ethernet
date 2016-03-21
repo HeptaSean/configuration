@@ -1,0 +1,4 @@
+Description='DHCP Ethernet Connection'
+Interface=enp0s25
+Connection=ethernet
+IP=dhcp

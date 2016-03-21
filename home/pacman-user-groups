@@ -12,12 +12,13 @@ xorg-xinit
 acpi
 alsa-utils
 intel-ucode
-laptop-mode-tools-git, ethtool, lm_sensors: laptop tool
+ethtool, lm_sensors: laptop tool
 lsof
 mlocate
 ntp
 polkit: allow user shutdown, reboot, suspend
 pmount: allow user mount
+reflector, reflector-timer: manage pacman mirrolist
 yaourt: package management tool
 
 [Disk]
@@ -89,7 +90,6 @@ curl
 bind-tools
 openssh
 rsync
-smbclient
 tcpdump
 wget
 whois
