@@ -12,7 +12,6 @@ xorg-xinit
 acpi
 alsa-utils
 intel-ucode
-ethtool, lm_sensors: laptop tool
 lsof
 mlocate
 ntp
