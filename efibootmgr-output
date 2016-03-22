@@ -1,8 +1,8 @@
 BootCurrent: 0000
 Timeout: 0 seconds
 BootOrder: 0000,0001,000F,000B
-Boot0000* Arch Linux	HD(1,GPT,6eb0c56f-8243-456b-95b6-f042d9b1cad6,0x800,0x100000)/File(\vmlinuz-linux)i.n.i.t.r.d.=./.i.n.i.t.r.a.m.f.s.-.l.i.n.u.x...i.m.g. .c.r.y.p.t.d.e.v.i.c.e.=./.d.e.v./.s.d.a.2.:.l.v.m.:.a.l.l.o.w.-.d.i.s.c.a.r.d.s. .r.o.o.t.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.r.o.o.t. .r.w. .r.e.s.u.m.e.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.s.w.a.p.
-Boot0001* Arch Linux (Fallback)	HD(1,GPT,6eb0c56f-8243-456b-95b6-f042d9b1cad6,0x800,0x100000)/File(\vmlinuz-linux)i.n.i.t.r.d.=./.i.n.i.t.r.a.m.f.s.-.l.i.n.u.x.-.f.a.l.l.b.a.c.k...i.m.g. .c.r.y.p.t.d.e.v.i.c.e.=./.d.e.v./.s.d.a.2.:.l.v.m.:.a.l.l.o.w.-.d.i.s.c.a.r.d.s. .r.o.o.t.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.r.o.o.t. .r.w. .r.e.s.u.m.e.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.s.w.a.p.
+Boot0000* Arch Linux	HD(1,GPT,6eb0c56f-8243-456b-95b6-f042d9b1cad6,0x800,0x100000)/File(\vmlinuz-linux)i.n.i.t.r.d.=./.i.n.t.e.l.-.u.c.o.d.e...i.m.g. .i.n.i.t.r.d.=./.i.n.i.t.r.a.m.f.s.-.l.i.n.u.x...i.m.g. .c.r.y.p.t.d.e.v.i.c.e.=./.d.e.v./.s.d.a.2.:.l.v.m.:.a.l.l.o.w.-.d.i.s.c.a.r.d.s. .r.o.o.t.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.r.o.o.t. .r.w. .r.e.s.u.m.e.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.s.w.a.p.
+Boot0001* Arch Linux (Fallback)	HD(1,GPT,6eb0c56f-8243-456b-95b6-f042d9b1cad6,0x800,0x100000)/File(\vmlinuz-linux)i.n.i.t.r.d.=./.i.n.t.e.l.-.u.c.o.d.e...i.m.g. .i.n.i.t.r.d.=./.i.n.i.t.r.a.m.f.s.-.l.i.n.u.x.-.f.a.l.l.b.a.c.k...i.m.g. .c.r.y.p.t.d.e.v.i.c.e.=./.d.e.v./.s.d.a.2.:.l.v.m.:.a.l.l.o.w.-.d.i.s.c.a.r.d.s. .r.o.o.t.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.r.o.o.t. .r.w. .r.e.s.u.m.e.=./.d.e.v./.m.a.p.p.e.r./.l.v.m.-.s.w.a.p.
 Boot0002  Boot Menu	FvFile(126a762d-5758-4fca-8531-201a7f57f850)
 Boot0003  Setup	FvFile(721c8b66-426c-4e86-8e99-3457c46ab0b9)
 Boot0004  Diagnostic Splash Screen	FvFile(a7d8d9a6-6ab0-4aeb-ad9d-163e59a7a380)

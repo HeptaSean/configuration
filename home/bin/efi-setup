@@ -1,3 +1,4 @@
 #!/bin/sh
-efibootmgr -c -L "Arch Linux" -l /vmlinuz-linux -u "initrd=/initramfs-linux.img cryptdevice=/dev/sda2:lvm:allow-discards root=/dev/mapper/lvm-root rw resume=/dev/mapper/lvm-swap"
-efibootmgr -c -L "Arch Linux (Fallback)" -l /vmlinuz-linux -u "initrd=/initramfs-linux-fallback.img cryptdevice=/dev/sda2:lvm:allow-discards root=/dev/mapper/lvm-root rw resume=/dev/mapper/lvm-swap"
+efibootmgr -c -L "Arch Linux" -l /vmlinuz-linux -u "initrd=/intel-ucode.img initrd=/initramfs-linux.img cryptdevice=/dev/sda2:lvm:allow-discards root=/dev/mapper/lvm-root rw resume=/dev/mapper/lvm-swap"
+efibootmgr -c -L "Arch Linux (Fallback)" -l /vmlinuz-linux -u "initrd=/intel-ucode.img initrd=/initramfs-linux-fallback.img cryptdevice=/dev/sda2:lvm:allow-discards root=/dev/mapper/lvm-root rw resume=/dev/mapper/lvm-swap"
+efibootmgr -o 0,1
