@@ -17,7 +17,7 @@ mlocate
 ntp
 polkit: allow user shutdown, reboot, suspend
 pmount: allow user mount
-reflector, reflector-timer: manage pacman mirrolist
+reflector: manage pacman mirrolist
 yaourt: package management tool
 
 [Disk]
@@ -26,6 +26,7 @@ dosfstools, ntfs-3g: Microsoft file system
 efibootmgr: boot manager
 gparted, parted: partition editor
 hdparm
+mkisolinux
 
 [Fonts]
 ttf-bitstream-vera
@@ -87,6 +88,7 @@ zip
 [Network Tools]
 curl
 bind-tools
+nmap
 openssh
 rsync
 tcpdump
@@ -120,7 +122,6 @@ audacity
 cdparanoia
 easytag
 ffmpeg
-gvfs
 libdvdcss
 libva-intel-driver
 mplayer
@@ -167,8 +168,14 @@ python-scipy, python-matplotlib, python-numpy: scientific library
 python-cherrypy: Web framework
 python-rdflib: RDF library
 python-sphinx: generate documentation
+python-twitter: command line twitter client
+pep8: PEP 8 conformance check
 python-pandas
 bpython, ipython: alternative shell
+
+[Node Development]
+nodejs: Node.js
+npm: Node.js package management
 
 [Arduino Development]
 arduino

@@ -48,3 +48,4 @@ systemd-journal-upload:x:997:
 systemd-journal-remote:x:998:
 git:x:999:
 systemd-coredump:x:996:
+fuse:x:1001:sean
