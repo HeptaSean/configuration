@@ -49,3 +49,4 @@ systemd-journal-remote:x:998:
 git:x:999:
 systemd-coredump:x:996:
 fuse:x:1001:sean
+mysql:x:89:
