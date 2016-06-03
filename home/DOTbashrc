@@ -75,12 +75,14 @@ if [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] ; then
         un_c='\[\e[1;36m\]' # cyan
     fi
     at_c='\[\e[0;37m\]'     # grey
-    ho_c='\[\e[1;35m\]'     # magenta
+    ho_c='\[\e[1;36m\]'     # cyan
     ti_c='\[\e[1;33m\]'     # yellow
+    ve_c='\[\e[1;35m\]'     # magenta
     di_c='\[\e[1;34m\]'     # blue
     end_c='\[\e[0m\]'
-    PS1="$sq_c┌─[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$ret_nok\$ec\" || echo \"$ret_ok\$ec\")$sq_c]─[$un_c\u$at_c@$ho_c\h$sq_c]─[$ti_c\t$sq_c]─[$di_c\w$sq_c]\n$sq_c└─\\\$ $end_c"
-    unset ret_nok ret_ok sq_c un_c at_c ho_c ti_c di_c end_c
+    PS1="$sq_c┌─[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$ret_nok\$ec\" || echo \"$ret_ok\$ec\")$sq_c]─[$un_c\u$at_c@$ho_c\h$sq_c]─[$ti_c\t$sq_c]\$([[ -n "\$VIRTUAL_ENV" ]] && (d=\${VIRTUAL_ENV%/*}; p=\${d##*/}; b=\${VIRTUAL_ENV##*/}; echo \"─[$ve_c\$p/\$b$sq_c]\"))─[$di_c\w$sq_c]\n$sq_c└─\\\$ $end_c"
+    unset ret_nok ret_ok sq_c un_c at_c ho_c ti_c ve_c di_c end_c
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
 
     alias ls="ls --color=auto --classify"
     alias grep="grep --color=auto"
@@ -112,10 +114,6 @@ alias janeway-start='sudo netctl start janeway'
 alias janeway-stop='sudo netctl stop janeway'
 alias freifunk-start='sudo netctl start freifunk'
 alias freifunk-stop='sudo netctl stop freifunk'
-
-# Aliases for dropbox:
-alias dropbox-start='sudo systemctl start dropbox@sean'
-alias dropbox-stop='sudo systemctl stop dropbox@sean'
 
 # Aliases for Freifunk-APs:
 alias ssh-ff-01='ssh root@2a03:2260:114:5:16cc:20ff:fe8a:45f0'
