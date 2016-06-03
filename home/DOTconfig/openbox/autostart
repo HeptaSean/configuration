@@ -1,5 +1,7 @@
 ~/.fehbg
+gnome-keyring-daemon --start
 tint2 &
 gvolwheel &
 keepassx &
+owncloud &
 conkyctl resources start 
