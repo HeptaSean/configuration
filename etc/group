@@ -50,3 +50,4 @@ git:x:999:
 systemd-coredump:x:996:
 fuse:x:1001:sean
 mysql:x:89:
+usbmux:x:140:
