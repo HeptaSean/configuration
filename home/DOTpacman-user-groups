@@ -17,11 +17,12 @@ mlocate
 ntp
 polkit: allow user shutdown, reboot, suspend
 pmount: allow user mount
+dialog: dialog interface for netctl wifi
 reflector: manage pacman mirrolist
 yaourt: package management tool
 
 [Disk]
-cdrkit
+cdrtools
 dosfstools, ntfs-3g: Microsoft file system
 efibootmgr: boot manager
 gparted, parted: partition editor
@@ -56,6 +57,7 @@ python2-pyqt4
 sane
 xsane
 xsane-gimp
+gtk3-print-backends
 
 [X Environment]
 arandr: manage multiple screens
@@ -71,10 +73,8 @@ tint2: panel and taskbar
 gvolwheel: taskbar applet
 
 [Command Line]
-aha-git: colour ANSI to HTML
 bash-completion: tab completion for bash
 colordiff: colour diff tool
-dialog: console menus
 gvim: Vim editor
 screen: session manager for terminals
 
@@ -99,15 +99,15 @@ wpa_supplicant
 [Browser]
 chromium
 firefox
-opera
 tor-browser-en
 # For all browsers:
-flashplugin: Adobe Flash
 profile-sync-daemon: browser profiles on /tmp
 
 [Communication]
 dropbox: file synchronisation
 thunderbird: e-mail
+owncloud-client: Owncloud
+gnome-keyring, libgnome-keyring: for owncloud-client
 
 [Graphics]
 gimp
@@ -118,7 +118,6 @@ inkscape
 
 [Media]
 abcde
-audacity
 cdparanoia
 easytag
 ffmpeg
@@ -145,53 +144,37 @@ mercurial
 
 [Document Creation]
 jabref
-flpsed
 libreoffice-still
 texlive-dummy
-pdfsam
 
 [Document Viewing]
 acroread
-diffpdf
 evince
-pdfpc
 
 [Python Development]
-cython: C extensions (?)
 python: core
-python-basemap: map rendering
-python-crypto, python-gnuplot, python-pyx: scapy optional dependencies
-python-feedparser: process RSS/Atom feeds
-python-pillow: imaging library
-python-psutil: manage processes
-python-scipy, python-matplotlib, python-numpy: scientific library
-python-cherrypy: Web framework
-python-rdflib: RDF library
-python-sphinx: generate documentation
-python-twitter: command line twitter client
-pep8: PEP 8 conformance check
-python-pandas
-bpython, ipython: alternative shell
-
-[Node Development]
-nodejs: Node.js
-npm: Node.js package management
+python-virtualenv: virtual environments
+python-pycodestyle: check code style for Python scripts
+python-feedparser: RSS/Atom feeds (used in conky scripts)
+python-psutil: process management (used in conky scripts)
+python-pandas: used for Quandl
+python-matplotlib, python-scipy, python-numpy: various data science packages
+python-pillow: image processing for matplotlib et al.
 
 [Arduino Development]
-arduino
+arduino-bin
 fritzing
 
 [Make and Manual Dependencies]
 boost: makedepend for fritzing
 cabextract: makedepend for ttf-vista-fonts
-cmake: makedepend for pdfpc
 fontconfig: makedepend for ttf-vista-fonts
 fontforge: makedepend for ttf-vista-fonts
-gcc-multilib: makedepend for lib32-pangox-compat
-git: makedepend for aha-git
-icoutils: makedepend for arduino
 intltool: makedepend for gvolwheel and pmount
 libarchive: makedepend for ttf-ms-fonts
-pkg-config: makedepend for lib32-pangox-compat
-vala: makedepend for pdfpc
 xorg-font-utils: makedepend for ttf-vista-fonts
+
+[Replace]
+xf86-input-synaptics
+xf86-input-evdev
+xf86-video-intel
