@@ -27,7 +27,7 @@ ${color1}Kernel Versions ${hr 6}
 ${execpi 3600 /home/sean/.conky/kvconky.py}
 
 ${color1}Arch Updates Pending ${hr 6}
-${color}Update by: ${color3}yaourt -Sua
+${color}Update by: ${color3}pacaur -Su
 ${execpi 3600 /home/sean/.conky/paconky.py}
 
 ${color1}TeXlive Updates Pending ${hr 6}

@@ -19,7 +19,7 @@ polkit: allow user shutdown, reboot, suspend
 pmount: allow user mount
 dialog: dialog interface for netctl wifi
 reflector: manage pacman mirrolist
-yaourt: package management tool
+pacaur: package management tool
 
 [Disk]
 cdrtools
@@ -53,7 +53,7 @@ libreoffice-still-fr, libreoffice-still-sv
 cups
 foomatic-db
 hplip
-python2-pyqt4
+python-gobject: for hp-setup
 sane
 xsane
 xsane-gimp
@@ -70,7 +70,7 @@ archlinux-xdg-menu: generation of application menu
 rxvt-unicode: terminal
 slock: screen locker
 tint2: panel and taskbar
-gvolwheel: taskbar applet
+volumeicon: taskbar applet
 
 [Command Line]
 bash-completion: tab completion for bash
@@ -104,10 +104,10 @@ tor-browser-en
 profile-sync-daemon: browser profiles on /tmp
 
 [Communication]
-dropbox: file synchronisation
 thunderbird: e-mail
 owncloud-client: Owncloud
 gnome-keyring, libgnome-keyring: for owncloud-client
+android-file-transfer
 
 [Graphics]
 gimp
@@ -132,7 +132,6 @@ vlc
 gnupg
 keepassx
 scrub
-truecrypt
 
 [Java Development]
 jdk
@@ -166,12 +165,13 @@ arduino-bin
 fritzing
 
 [Make and Manual Dependencies]
+perl: makedepend for cower, pacaur
 boost: makedepend for fritzing
+intltool: makedepend for pmount
+libarchive: makedepend for ttf-ms-fonts
 cabextract: makedepend for ttf-vista-fonts
 fontconfig: makedepend for ttf-vista-fonts
 fontforge: makedepend for ttf-vista-fonts
-intltool: makedepend for gvolwheel and pmount
-libarchive: makedepend for ttf-ms-fonts
 xorg-font-utils: makedepend for ttf-vista-fonts
 
 [Replace]

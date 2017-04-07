@@ -1,2 +1,0 @@
-ACTION=="add",    KERNEL=="sd[b-z]*", PROGRAM="/usr/bin/blkid -c /dev/null -s LABEL -o value /dev/%k", RUN+="/usr/bin/su -c 'pmount %k %c' sean"
-ACTION=="remove", KERNEL=="sd[b-z]*", RUN+="/usr/bin/su -c 'pumount %k' sean"

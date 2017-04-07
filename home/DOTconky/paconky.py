@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 #
-# Script to print a list of pending Arch Linux updates in a format suitable for
-# Conky to use as an update monitor
+# Script to print a list of pending Arch Linux updates in a format
+# suitable for Conky to use as an update monitor
 #
 # This should be quite self-explanatory and be customised to your needs.
-# NOTE: Please run it in a Conky instance with a long update_interval or use
-# ${execpi} to run this script seldomly to keep the load on the Arch servers
-# low.
+# NOTE: Please run it in a Conky instance with a long update_interval or
+# use ${execpi} to run this script seldomly to keep the load on the Arch
+# servers low.
 #
 # Main points for customisation are the constants at the beginning of the
 # script.
-# - line_width is the number of characters that fit in one line of your Conky
-#   instance (in order to split package and version info on two lines if too
-#   long).
+# - line_width is the number of characters that fit in one line of your
+#   Conky instance (in order to split package and version info on two
+#   lines if too long).
 # - *_template are templates for the lines written to stdout for Conky to
 #   consume.
 #
 # Requirements:
 # - python3 – to execute this script
-# - yaourt – pacman extension that also handles AUR packages
-#   (might be patched to use pacman only or even to package managers from other
-#   distributions)
+# - pacaur – pacman extension that also handles AUR packages
+#   (might be patched to use pacman only or even to package managers from
+#   other distributions)
 
 import sys
 import subprocess
@@ -56,43 +56,26 @@ def display(updates):
     else:
         print(none_template)
 
-def run_yaourt():
+def run_pacaur():
     # Update from repositories (stdout redirected to not clutter output to
     # Conky, needs sudo if pacman is used):
-    subprocess.call(['yaourt', '--sync', '--refresh'],
+    subprocess.call(['pacaur', '-Sy'],
                     stdout=sys.stderr.buffer)
-    # Show pending updates (remove --aur if pacman is used):
-    p = subprocess.Popen(['yaourt', '--query', '--upgrades', '--aur'],
+    # Show pending updates:
+    p = subprocess.Popen(['pacaur', '-Qu', '--color', 'never'],
                          stdout=subprocess.PIPE)
     return iter(p.stdout.readline, b'')
 
-def get_version(pkg):
-    p = subprocess.Popen(['yaourt', '--query', pkg],
-                         stdout=subprocess.PIPE)
-    version = '-'
-    for line in iter(p.stdout.readline, b''):
-        words = line.decode('utf-8').strip().split(' ')
-        query_repo_pkg = words[0]
-        query_version = words[1]
-        words = query_repo_pkg.split('/')
-        query_repo = words[0]
-        query_pkg = words[1]
-        if query_pkg == pkg:
-            version = query_version
-    return version
-
-def get_updates(yaourt_output):
+def get_updates(pacaur_output):
     updates = list()
-    for line in yaourt_output:
-        words = line.decode('utf-8').strip().split(' ')
-        repo_pkg = words[0]
-        new_version = words[1]
-        words = repo_pkg.split('/')
-        repo = words[0]
-        pkg = words[1]
-        old_version = get_version(pkg)
+    for line in pacaur_output:
+        words = line.decode('utf-8').strip().split()
+        repo = words[1]
+        pkg = words[2]
+        old_version = words[3]
+        new_version = words[5]
         updates.append((repo, pkg, old_version, new_version))
     return updates
 
 if __name__ == "__main__":
-    display(get_updates(run_yaourt()))
+    display(get_updates(run_pacaur()))

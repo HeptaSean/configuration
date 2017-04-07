@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 #
-# Script to check running against installed kernel and warn the user to restart
-# if they differ (to be used in a Conky instance)
+# Script to check running against installed kernel and warn the user to
+# restart if they differ (to be used in a Conky instance)
 #
 # This should be quite self-explanatory and be customised to your needs.
 #
@@ -14,9 +14,8 @@
 # Requirements:
 # - python3 – to execute this script
 # - uname – used to get running kernel version
-# - yaourt – pacman extension that also handles AUR packages
-#   (might be patched to use pacman only or even to package managers from other
-#   distributions)
+# - pacman – Arch Linux package manager
+#   (might be patched to use package managers from other distributions)
 
 import sys
 import subprocess
@@ -35,7 +34,7 @@ def display(running_kernel, installed_kernel):
     print(installed_template % installed_kernel)
 
 def query_running_kernel():
-    p = subprocess.Popen(['uname', '--kernel-release'],
+    p = subprocess.Popen(['uname', '-r'],
                          stdout=subprocess.PIPE)
     version = '-'
     for line in iter(p.stdout.readline, b''):
@@ -43,7 +42,7 @@ def query_running_kernel():
     return version
 
 def query_installed_kernel():
-    p = subprocess.Popen(['yaourt', '--query', 'linux'],
+    p = subprocess.Popen(['pacman', '-Q', 'linux'],
                          stdout=subprocess.PIPE)
     version = '-'
     for line in iter(p.stdout.readline, b''):
