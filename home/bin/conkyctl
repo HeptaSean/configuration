@@ -52,11 +52,12 @@ def start_process(rc_file, pid_file, out_file):
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Error: Wrong number of arguments!")
-        print(("Usage: {} <configuration> " +
-            "[start|stop|restart|status|running]").format(
+        print(("Usage: {} [start|stop|restart|status|running] " +
+            "<configuration>").format(
                 os.path.basename(sys.argv[0])))
         sys.exit(1)
-    config_name = sys.argv[1]
+    action = sys.argv[1]
+    config_name = sys.argv[2]
     rc_file = os.path.join(config_path, config_name + '.rc')
     pid_file = os.path.join(tmp_path, 'conky-' + config_name + '.pid')
     out_file = os.path.join(tmp_path, 'conky-' + config_name + '.out')
@@ -64,7 +65,6 @@ if __name__ == "__main__":
         print("Error: '{}' has to be a Conky configuration file!".format(
             rc_file))
         sys.exit(1)
-    action = sys.argv[2]
     if action == "start":
         if get_process(pid_file):
             print(("Error: Conky configuration '{}' is " +

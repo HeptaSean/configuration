@@ -4,4 +4,4 @@ tint2 &
 volumeicon &
 keepassx &
 owncloud &
-conkyctl resources start 
+conkyctl start resources
