@@ -6,6 +6,7 @@
 gcc-libs-multilib: multilib version
 
 [xorg]
+xorg-xfontsel
 xorg-xinit
 
 [Base]
@@ -76,7 +77,8 @@ volumeicon: taskbar applet
 bash-completion: tab completion for bash
 colordiff: colour diff tool
 gvim: Vim editor
-screen: session manager for terminals
+tmux: terminal multiplexer
+upower: battery information on command line
 
 [Archive Tools]
 cabextract
@@ -86,8 +88,9 @@ unzip
 zip
 
 [Network Tools]
-curl
 bind-tools
+curl
+ethtool
 nmap
 openssh
 rsync
@@ -113,6 +116,7 @@ android-file-transfer
 gimp
 gpicview
 graphviz
+gtk2fontsel
 imagemagick
 inkscape
 
@@ -133,24 +137,22 @@ gnupg
 keepassx
 scrub
 
-[Java Development]
-jdk
-jdk-docs
-
 [Version Control Systems]
 git
 mercurial
 
-[Document Creation]
+[Document Creation and Viewing]
+acroread
+evince
 jabref
 libreoffice-still
 texlive-dummy
 
-[Document Viewing]
-acroread
-evince
-
-[Python Development]
+[Development]
+arduino-bin
+fritzing
+jdk
+jdk-docs
 python: core
 python-virtualenv: virtual environments
 python-pycodestyle: check code style for Python scripts
@@ -159,10 +161,6 @@ python-psutil: process management (used in conky scripts)
 python-pandas: used for Quandl
 python-matplotlib, python-scipy, python-numpy: various data science packages
 python-pillow: image processing for matplotlib et al.
-
-[Arduino Development]
-arduino-bin
-fritzing
 
 [Make and Manual Dependencies]
 perl: makedepend for cower, pacaur
