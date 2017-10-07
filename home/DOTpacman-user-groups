@@ -102,6 +102,7 @@ wpa_supplicant
 [Browser]
 chromium
 firefox
+pepper-flash: chromium flash-plugin
 tor-browser-en
 # For all browsers:
 profile-sync-daemon: browser profiles on /tmp
@@ -115,10 +116,12 @@ android-file-transfer
 [Graphics]
 gimp
 gpicview
+gpick
 graphviz
 gtk2fontsel
 imagemagick
 inkscape
+python2-lxml: for inkscape-modules
 
 [Media]
 abcde
