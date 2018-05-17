@@ -80,7 +80,7 @@ if [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] ; then
     ve_c='\[\e[1;35m\]'     # magenta
     di_c='\[\e[1;34m\]'     # blue
     end_c='\[\e[0m\]'
-    PS1="$sq_c[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$ret_nok\$ec\" || echo \"$ret_ok\$ec\")$sq_c]—[$un_c\u$at_c@$ho_c\h$sq_c]—[$ti_c\t$sq_c]\$([[ -n "\$VIRTUAL_ENV" ]] && (d=\${VIRTUAL_ENV%/*}; p=\${d##*/}; b=\${VIRTUAL_ENV##*/}; echo \"—[$ve_c\$p/\$b$sq_c]\"))—[$di_c\w$sq_c]\n$sq_c\\\$ $end_c"
+    PS1="$sq_c[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$ret_nok\$ec\" || echo \"$ret_ok\$ec\")$sq_c]—[$un_c\u$at_c@$ho_c\h$sq_c]—[$ti_c\t$sq_c]\$([[ -n "\$VIRTUAL_ENV" ]] && (v=\${VIRTUAL_ENV##*/}; echo \"—[$ve_c\$v$sq_c]\"))—[$di_c\w$sq_c]\n$sq_c\\\$ $end_c"
     unset ret_nok ret_ok sq_c un_c at_c ho_c ti_c ve_c di_c end_c
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -113,3 +113,8 @@ alias xrandr-off='xrandr --output LVDS1 --auto --output HDMI1 --off\
 alias ssh-ff-01='ssh root@2a03:2260:114:5:16cc:20ff:fe8a:45f0'
 alias ssh-ff-02='ssh root@2a03:2260:114:5:8616:f9ff:fe48:fd2e'
 alias ssh-ff-03='ssh root@2a03:2260:114:5:16cc:20ff:fe63:1c2'
+
+# Settings for Python virtualenvwrapper:
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=~/PythonEnvs
+source /usr/bin/virtualenvwrapper.sh

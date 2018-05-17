@@ -1,18 +1,18 @@
-# 
-# /etc/fstab: static file system information
-#
-# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system>      <dir>             <type> <options>                                                                                                    <dump> <pass>
 # UUID=6B32-C95A
-/dev/sda1            /boot vfat discard,noatime,rw,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro     0 2
+/dev/sda1            /boot             vfat   discard,noatime,rw,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro  0      2
 
 # UUID=65a957e6-83b1-4c42-b172-aba491a597a4
-/dev/mapper/lvm-root /     ext4 discard,noatime,rw,data=ordered 0 1
+/dev/mapper/lvm-root /                 ext4   discard,noatime,rw,data=ordered                                                                              0      1
 
 # UUID=590a0758-4b8a-4211-9209-462a93c9518d
-/dev/mapper/lvm-home /home ext4 discard,noatime,rw,data=ordered 0 2
+/dev/mapper/lvm-home /home             ext4   discard,noatime,rw,data=ordered                                                                              0      2
 
 # UUID=4a758a50-7869-4efe-bcbe-95231d15351a
-/dev/mapper/lvm-swap none  swap defaults                        0 0
+/dev/mapper/lvm-swap none              swap   defaults                                                                                                     0      0
 
 # Cache in tmpfs
-tmpfs /home/sean/.cache tmpfs noatime,nodev,nosuid 0 0
+tmpfs                /home/sean/.cache tmpfs  noatime,nodev,nosuid                                                                                         0      0

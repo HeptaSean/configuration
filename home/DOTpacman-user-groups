@@ -2,9 +2,6 @@
 
 [base-devel]
 
-[multilib-devel]
-gcc-libs-multilib: multilib version
-
 [xorg]
 xorg-xfontsel
 xorg-xinit
@@ -47,18 +44,17 @@ hunspell-de,  hunspell-en,  hunspell-fr,  hunspell-sv,  hunspell
 hyphen-de,    hyphen-en,    hyphen-fr,    hyphen-sv,    hyphen
 mythes-de,    mythes-en,    mythes-fr,    mythes-sv,    libmythes
 vim-spell-de, vim-spell-en, vim-spell-fr, vim-spell-sv
-libreoffice-still-de, libreoffice-still-en-GB
-libreoffice-still-fr, libreoffice-still-sv
+libreoffice-still-de, libreoffice-still-fr, libreoffice-still-sv
 
 [Printing and Scanning]
 cups
 foomatic-db
 hplip
-python-gobject: for hp-setup
+python-gobject: for hplip
+python-pyqt5: for hplip
 sane
 xsane
 xsane-gimp
-gtk3-print-backends
 
 [X Environment]
 arandr: manage multiple screens
@@ -76,7 +72,6 @@ volumeicon: taskbar applet
 [Command Line]
 bash-completion: tab completion for bash
 colordiff: colour diff tool
-gvim: Vim editor
 tmux: terminal multiplexer
 upower: battery information on command line
 
@@ -121,6 +116,7 @@ graphviz
 gtk2fontsel
 imagemagick
 inkscape
+perl-image-exiftool
 python2-lxml: for inkscape-modules
 
 [Media]
@@ -140,34 +136,24 @@ gnupg
 keepassx
 scrub
 
-[Version Control Systems]
-git
-mercurial
-
 [Document Creation and Viewing]
-acroread
 evince
 jabref
 libreoffice-still
 texlive-dummy
 
 [Development]
-arduino-bin
-fritzing
+atom
+git
+gvim
 jdk
 jdk-docs
-python: core
-python-virtualenv: virtual environments
-python-pycodestyle: check code style for Python scripts
-python-feedparser: RSS/Atom feeds (used in conky scripts)
-python-psutil: process management (used in conky scripts)
-python-pandas: used for Quandl
-python-matplotlib, python-scipy, python-numpy: various data science packages
-python-pillow: image processing for matplotlib et al.
+mercurial
+python
+python-pip
 
 [Make and Manual Dependencies]
 perl: makedepend for cower, pacaur
-boost: makedepend for fritzing
 intltool: makedepend for pmount
 libarchive: makedepend for ttf-ms-fonts
 cabextract: makedepend for ttf-vista-fonts

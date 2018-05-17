@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-scale '/home/sean/.wallpaper/Arch_Dark_Brushed_HeptaSean.png' 
+feh --bg-scale '/home/sean/.wallpaper/Arch_Dark_Brushed_HeptaSean.png' 
