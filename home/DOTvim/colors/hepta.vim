@@ -14,7 +14,7 @@ hi Cursor gui=reverse guifg=#B7B7B7 guibg=NONE
 hi lCursor gui=NONE guifg=#B7B7B7 guibg=NONE
          \ term=NONE cterm=NONE ctermfg=15 ctermbg=NONE
 " the screen column that the cursor is in when 'cursorcolumn' is set
-hi CursorColumn gui=NONE guifg=NONE guibg=#242424
+hi CursorColumn gui=NONE guifg=NONE guibg=#484848
               \ term=NONE cterm=NONE ctermfg=NONE ctermbg=8
 " the screen line that the cursor is in when 'cursorline' is set
 hi clear CursorLine
@@ -23,15 +23,15 @@ hi link CursorLine CursorColumn
 hi clear ColorColumn
 hi link ColorColumn CursorColumn
 " line used for closed folds
-hi Folded gui=NONE guifg=#4BB7B7 guibg=#242424
+hi Folded gui=NONE guifg=#4BB7B7 guibg=#484848
         \ term=NONE cterm=NONE ctermfg=6 ctermbg=8
 " 'foldcolumn'
 hi clear FoldColumn
 hi link FoldColumn Folded
 " '~' and '@' at the end of the window
-hi NonText gui=NONE guifg=#6F6FDB guibg=#242424
+hi NonText gui=NONE guifg=#6F6FDB guibg=#484848
          \ term=NONE cterm=NONE ctermfg=4 ctermbg=8
-hi NonTextBold gui=bold guifg=#9393FF guibg=#242424
+hi NonTextBold gui=bold guifg=#9393FF guibg=#484848
              \ term=bold cterm=bold ctermfg=12 ctermbg=8
 " Line number for ":number" and ":#" commands
 hi clear LineNr
@@ -78,14 +78,14 @@ hi Question gui=reverse,bold guifg=#93FF93 guibg=NONE
 hi WildMenu gui=reverse,bold guifg=#DBDB6F guibg=NONE
           \ term=reverse,bold cterm=reverse,bold ctermfg=11 ctermbg=NONE
 " popup menu: normal item
-hi Pmenu gui=NONE guifg=#939393 guibg=#242424
+hi Pmenu gui=NONE guifg=#939393 guibg=#484848
        \ term=NONE cterm=NONE ctermfg=7 ctermbg=8
 " popup menu: selected item
 hi PmenuSel gui=reverse guifg=#6F6FDB guibg=NONE
           \ term=reverse cterm=reverse ctermfg=4 ctermbg=NONE
 " popup menu: scrollbar
-hi PmenuSbar gui=NONE guifg=#6F6FDB guibg=#242424
-           \ term=NONE cterm=NONE ctermfg=4    ctermbg=8
+hi PmenuSbar gui=NONE guifg=#6F6FDB guibg=#484848
+           \ term=NONE cterm=NONE ctermfg=4 ctermbg=8
 " popup menu: thumb of the scrollbar
 hi clear PmenuThumb
 hi link PmenuThumb PmenuSbar
@@ -138,7 +138,7 @@ hi Title gui=bold guifg=#9393FF guibg=NONE
 hi Directory gui=bold guifg=#9393FF guibg=NONE
            \ term=bold cterm=bold ctermfg=12 ctermbg=NONE
 " place holder characters substituted for concealed text ('conceallevel')
-hi Conceal gui=NONE guifg=#242424 guibg=NONE
+hi Conceal gui=NONE guifg=#484848 guibg=NONE
          \ term=NONE cterm=NONE ctermfg=8 ctermbg=NONE
 " highlight groups for syntax highlighting,
 " just change foreground colours:
