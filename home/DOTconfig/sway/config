@@ -28,7 +28,8 @@ bindsym XF86AudioMute exec amixer --quiet set Master toggle
 bindsym XF86AudioMicMute exec amixer --quiet set Capture toggle
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
-bindsym Print exec grim -g "$(slurp)" "/tmp/$(date +'screenshot-%Y-%m-%d-%H:%M:%S.png')"
+bindsym Print exec grim "/tmp/$(date +'screenshot-%Y-%m-%d-%H:%M:%S.png')"
+bindsym Print+Shift exec grim -g "$(slurp)" "/tmp/$(date +'screenshot-%Y-%m-%d-%H:%M:%S.png')"
 bindsym Mod4+m exec thunderbird
 bindsym Mod4+w exec firefox
 bindsym Mod4+Shift+w exec firefox-hdmi
