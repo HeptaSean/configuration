@@ -1,122 +1,110 @@
-[base]
-
-[base-devel]
-
-[System]
-acpi
+[Base System]
 alsa-utils
 base
+bash
 bind-tools
 brightnessctl
 cdrtools
 cups
 curl
+dhcpcd
 dialog
+diffutils
 dosfstools
+e2fsprogs
 efibootmgr
 ethtool
 exfat-utils
 foomatic-db
 glances
 gnupg
-gparted
-grim
 hplip
+inetutils
 intel-ucode
 iw
-keepassxc
-libnotify
 linux
-lsof
-mako
+linux-firmware
+logrotate
+lvm2
+man-db
 man-pages
 mlocate
 mtr
-nmap
+netctl
 ntfs-3g
 ntp
 openssh
 p7zip
+pacman
 pacman-contrib
 pacolog
-parted
+perl-image-exiftool
 pikaur
 polkit
 pmount
-python-gobject
-python-prompt_toolkit
-python-pyqt5
-qt5-wayland
 ranger
 reflector
 rsync
 scrub
 simple-mtpfs
-slurp
 smartmontools
-sway-git
-swaylock-git
-syslinux
-tcpdump
-termite
-tmux
+sudo
+texinfo
 tree
 unzip
+usbutils
 wget
 whois
 wpa_supplicant
-xorg-xeyes
 zip
 
-[Desktop]
+[Wayland Base System]
+glew-wayland
+grim
+libnotify
+mako
+qt5-wayland
+slurp
+sway-git
+swaylock-git
+termite
+
+[Desktop Applications]
 aspell
 aspell-de
 aspell-en
-aspell-fr
-aspell-sv
 darktable
 ffmpeg
 firefox
 gimp
-glew-wayland
 gnu-free-fonts
 google-chrome
+gparted
 graphviz
 hunspell
 hunspell-de
 hunspell-en_GB
 hunspell-en_US
-hunspell-fr
-hunspell-sv
 hyphen
 hyphen-de
 hyphen-en
-hyphen-fr
-hyphen-sv
 imagemagick
 imv
 inkscape
+keepassxc
 leocad
 libaacs
 libdvdcss
-libmythes
 libreoffice-fresh
 libreoffice-fresh-de
 libreoffice-fresh-en-gb
-libreoffice-fresh-fr
-libreoffice-fresh-sv
 libva-intel-driver
 masterpdfeditor-free
 mpv
-mythes-de
-mythes-en
-mythes-fr
-mythes-sv
 noto-fonts-emoji
 pdfpc
-perl-image-exiftool
+python-pyqt5
 python2-lxml: for inkscape-modules
-sane
 seafile
 thunderbird
 ttf-bitstream-vera
@@ -129,27 +117,32 @@ ttf-ubuntu-font-family
 xsane
 zathura-pdf-mupdf
 
-[Development]
+[Development Tools]
 android-tools
 code
 fossil
 git
-mercurial
 mypy
 python
-python-feedparser
 python-pip
 python-pycodestyle
 python-pylint
 vim
 vim-spell-de
 vim-spell-en
-vim-spell-fr
-vim-spell-sv
 
-[Make and Manual Dependencies]
-git: makedepend for sway-git, wlroots-git
-intltool: makedepend for pmount, seafile
-meson: makedepend for sway-git, wlroots-git
-scdoc: makedepend for sway-git
-vala: makedepend for ccnet-server, seafile
+[Make Dependencies]
+autoconf: for many (undeclared)
+automake: for many (undeclared)
+gcc: for many
+git: for sway-git, swaybg-git, swaylock-git, wlroots-git
+intltool: for pmount, seafile
+make: for many (undeclared)
+meson: for sway-git, swaybg-git, swaylock-git, wlroots-git
+ninja: for sway-git, wlroots-git
+patch: for pmount (undecl.), libsearpc (undecl.)
+qt5-tools: for leocad
+scdoc: for sway-git, swaybg-git, swaylock-git
+vala: for ccnet-server, seafile
+wayland-protocols: for sway-git, swaybg-git, swaylock-git, wlroots-git
+which: for ccnet-server (and others?, undeclared)
