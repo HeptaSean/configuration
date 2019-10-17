@@ -4,7 +4,7 @@ font = Cousine 12
 [colors]
 background = rgba(0, 0, 0, 0.5)
 foreground = #939393
-color0  = #000000
+color0  = #242424
 color1  = #DB6F6F
 color2  = #6FDB6F
 color3  = #B7B74B
@@ -12,7 +12,7 @@ color4  = #6F6FDB
 color5  = #B74BB7
 color6  = #4BB7B7
 color7  = #939393
-color8  = #242424
+color8  = #484848
 color9  = #FF9393
 color10 = #93FF93
 color11 = #DBDB6F
