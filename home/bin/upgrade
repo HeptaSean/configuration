@@ -1,0 +1,20 @@
+#!/bin/sh
+echo Upgrading Arch:
+echo ===============
+pikaur -Syu
+echo
+echo Cleaning package cache:
+echo =======================
+echo Removing all but previous and current version of installed packages:
+paccache -rk2
+echo
+echo Removing all but previously installed version of uninstalled packages:
+paccache -ruk1
+echo
+echo Upgrading TeXlive:
+echo ==================
+sudo tlmgr update --all
+echo
+echo Checking kernel versions:
+echo =========================
+checkkerver

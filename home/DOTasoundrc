@@ -1,0 +1,28 @@
+pcm.!default {
+  type plug
+  slave.pcm {
+    @func getenv
+    vars [ ALSAPCM ]
+    default "main"
+  }
+}
+pcm.main {
+  type hw
+  card 0
+  device 0
+}
+ctl.main {
+  type hw
+  card 0
+  device 0
+}
+pcm.hdmiout {
+  type hw
+  card 0
+  device 3
+}
+ctl.hdmiout {
+  type hw
+  card 0
+  device 3
+}

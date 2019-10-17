@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+# -*- coding: utf8 -*-
+#
+# Script to check running against installed kernel and warn the user to
+# restart if they differ
+#
+# This should be quite self-explanatory and be customised to your needs.
+#
+# Main points for customisation are the constants at the beginning of the
+# script.
+# - *_template are templates for the lines written to stdout
+#
+# Requirements:
+# - python3 – to execute this script
+# - uname – used to get running kernel version
+# - pacman – Arch Linux package manager
+#   (might be patched to use package managers from other distributions)
+
+import sys
+import subprocess
+
+# Templates for displaying information:
+running_template = 'Running Kernel:   \x1b[33m%s\x1b[39m'
+installed_template = 'Installed Kernel: \x1b[33m%s\x1b[39m'
+warning_template = '\x1b[31mKernel versions differ! You should reboot!\x1b[39m'
+
+def display(running, installed):
+    index = running.rfind('-ARCH')
+    running = running[0:index]
+    running_comp = running.replace('-', '.')
+    installed_comp = installed.replace('-', '.')
+    if (running_comp != installed_comp):
+        print(warning_template)
+    print(running_template % running)
+    print(installed_template % installed)
+
+def query_running_kernel():
+    p = subprocess.Popen(['uname', '-r'],
+                         stdout=subprocess.PIPE)
+    version = '-'
+    for line in iter(p.stdout.readline, b''):
+        version = line.decode('utf-8').strip()
+    return version
+
+def query_installed_kernel():
+    p = subprocess.Popen(['pacman', '-Q', 'linux'],
+                         stdout=subprocess.PIPE)
+    version = '-'
+    for line in iter(p.stdout.readline, b''):
+        words = line.decode('utf-8').strip().split(' ')
+        version = words[1]
+    return version
+
+if __name__ == "__main__":
+    running_kernel = query_running_kernel()
+    installed_kernel = query_installed_kernel()
+    display(running_kernel, installed_kernel)

@@ -1,2 +1,2 @@
-export PATH=/usr/local/texlive/texlive-dist/bin/x86_64-linux${PATH:+:$PATH}
-export INFOPATH=/usr/local/texlive/texlive-dist/texmf-dist/doc/info${INFOPATH:+:$INFOPATH}
+export PATH=${PATH:+${PATH}:}/usr/local/texlive/2019/bin/x86_64-linux
+export INFOPATH=${INFOPATH:+${INFOPATH}:}/usr/local/texlive/2019/texmf-dist/doc/info

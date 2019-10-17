@@ -1,6 +1,6 @@
 set backup                 " save backups ...
 set backupdir=/tmp/        " ... in /tmp
-set directory=/tmp//       " swap files in /tmp (with encoded full path)
+set directory=/tmp//       " swap files in /tmp (with %ed full path)
 set viminfo+=n/tmp/viminfo " save /viminfo in /tmp
 set undofile               " save undo files ...
 set undodir=/tmp/          " ... in /tmp
@@ -18,7 +18,7 @@ set hlsearch               " highlight all matches for current search
 set incsearch              " highlight first match for partial search
 set ignorecase             " ignore case in searches, ...
 set smartcase              " ..., but only if pattern has no upper case
-set backspace=1            " backspace over auto indents and line breaks
+set backspace=1            " backspace over indents and line breaks
 set autoindent             " copy indent on <CR>
 set textwidth=75           " set text width to 75 characters ...
 set colorcolumn=+1         " ... and colour the 76th column
@@ -28,9 +28,9 @@ set foldignore=            " also fold comments (for consistency)
 set foldmethod=indent      " use indent for folding
 set nofoldenable           " disable folding at opening
 set wildmenu               " tab completion shows menu of completions
-set mouse=a                " use mouse
-filetype plugin indent on  " load plug-ins and indents based on file types
-set spell spelllang=en_gb  " enable spell checking (default: British)
+set mouse=                 " do not use mouse
+filetype plugin indent on  " load plug-ins/indents based on file types
+"set spell spelllang=en_gb  " enable spell checking (default: British)
 set statusline=            " custom status line:
 set statusline+=\[%n]                       " buffer number
 set statusline+=%<                          " truncate here
@@ -39,11 +39,12 @@ set statusline+=\ %y                        " file type
 set statusline+=\[%{(&fenc!=''?&fenc:&enc)} " encoding
 set statusline+=%{(&bomb?\",BOM\":\"\")}    " byte order mark?
 set statusline+=,%{&ff}]                    " Unix/DOS line endings
-set statusline+=\[%{&spelllang}]            " current spell check language
-set statusline+=%=                          " beginning of right justified
+"set statusline+=\[%{&spelllang}]            " current spell language
+set statusline+=%=                          " begin right justified
 set statusline+=%l/%L                       " row/total
 set statusline+=,%c%V                       " col and virtual col
 set statusline+=%(\ %m%)                    " modified?
 set laststatus=2           " always show status line
 syntax on                  " turn syntax highlighting on
 colorscheme hepta
+set term=screen-256color   " set term for tmux

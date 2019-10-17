@@ -1,7 +1,0 @@
-~/.fehbg
-gnome-keyring-daemon --start
-tint2 &
-volumeicon &
-keepassx &
-owncloud &
-conkyctl start resources

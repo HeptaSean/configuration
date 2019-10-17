@@ -1,1 +1,2 @@
+Defaults verifypw=any
 sean ALL=(ALL) NOPASSWD: ALL

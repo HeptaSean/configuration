@@ -1,0 +1,120 @@
+# Notifications:
+# ==============
+exec mako
+# Appearance:
+# ===========
+output * bg /home/sean/.config/sway/Wallpaper-Arch-Brushed.png fill
+default_border none
+gaps inner 10
+# Keyboard Layout:
+# ================
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_model pc105
+    xkb_layout de
+    xkb_variant nodeadkeys
+    xkb_options compose:rctrl
+}
+# Basic Shortcuts:
+# ================
+bindsym Mod4+Shift+x kill
+bindsym Mod4+Shift+c reload
+# Application Shortcuts:
+# ======================
+bindsym XF86Launch1 exec termite
+bindsym XF86Screensaver exec swaylock
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5-
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+
+bindsym XF86AudioMute exec amixer --quiet set Master toggle
+bindsym XF86AudioMicMute exec amixer --quiet set Capture toggle
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
+bindsym Print exec grim -g "$(slurp)" "/tmp/$(date +'screenshot-%Y-%m-%d-%H:%M:%S.png')"
+bindsym Mod4+m exec thunderbird
+bindsym Mod4+w exec firefox
+bindsym Mod4+Shift+w exec firefox-hdmi
+bindsym Mod4+c exec code
+# Container Management:
+# =====================
+# Focus:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+bindsym Mod4+space focus mode_toggle # toggle floating/tiling
+# Move:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+# Split and back to parent:
+bindsym Mod4+Shift+n split toggle
+bindsym Mod4+Shift+p focus parent
+# Change layout:
+bindsym Mod4+Shift+h layout splith
+bindsym Mod4+Shift+v layout splitv
+bindsym Mod4+Shift+s layout stacking
+bindsym Mod4+Shift+t layout tabbed
+bindsym Mod4+Shift+f fullscreen
+# Float:
+bindsym Mod4+Shift+space floating toggle
+floating_modifier Mod4 normal
+# Resize Containers:
+# ==================
+bindsym Mod4+Shift+r mode "resize"
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Workspace Management:
+# =====================
+bindsym Mod4+1 workspace 1:Main
+bindsym Mod4+2 workspace 2:Second
+bindsym Mod4+3 workspace 3:Mail
+bindsym Mod4+4 workspace 4:Web
+bindsym Mod4+5 workspace 5:Dev
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+0 workspace 10
+bindsym Mod4+Shift+1 move container to workspace 1:Main
+bindsym Mod4+Shift+2 move container to workspace 2:Second
+bindsym Mod4+Shift+3 move container to workspace 3:Mail
+bindsym Mod4+Shift+4 move container to workspace 4:Web
+bindsym Mod4+Shift+5 move container to workspace 5:Dev
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+8 move container to workspace 8
+bindsym Mod4+Shift+9 move container to workspace 9
+bindsym Mod4+Shift+0 move container to workspace 10
+# Scratchpad Management:
+# ======================
+bindsym Mod4+Shift+minus move scratchpad
+bindsym Mod4+minus scratchpad show
+# Status Bar:
+# ===========
+bar {
+    position top
+    status_command /home/sean/.config/sway/status
+    font Cousine 12
+    colors {
+        background #242424
+        statusline #939393
+        inactive_workspace #003636 #003636 #939393
+        active_workspace #006C6C #006C6C #B7B7B7
+        focused_workspace #006C6C #006C6C #B7B7B7
+        urgent_workspace #902424 #902424 #B7B7B7
+    }
+}
+# Application Specific:
+# =====================
+assign [class="Thunderbird"] workspace 3:Mail
+assign [class="Chromium"] workspace 4:Web
+assign [class="firefox"] workspace 4:Web
+assign [class="code-oss"] workspace 5:Dev
+assign [title="^pdfpc - presenter.*"] workspace 1:Main
+assign [title="^pdfpc - presentation.*"] workspace 2:Second

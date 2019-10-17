@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+import subprocess
+import re
+import datetime
+import time
+
+volume_re = re.compile(r'\[(\d+\%)\]')
+
+max_brightness = 100
+with open('/sys/class/backlight/intel_backlight/max_brightness') as f:
+    max_brightness = int(f.readline().strip())
+
+battery_notified = 100
+
+while True:
+    # Get Volume:
+    volume = 'N/A'
+    output = subprocess.run(['amixer', 'get', 'Master'],
+                            capture_output=True).stdout.decode('utf-8')
+    match = volume_re.search(output)
+    if match:
+        volume = match.group(1)
+    # Get Screen Brightness:
+    actual_brightness = 0
+    with open('/sys/class/backlight/intel_backlight/actual_brightness') as f:
+        actual_brightness = int(f.readline().strip())
+    brightness = '{}%'.format(actual_brightness * 100 // max_brightness)
+    # Get Battery State:
+    battery_capacity = 0
+    with open('/sys/class/power_supply/BAT0/capacity') as f:
+        battery_capacity = int(f.readline().strip())
+    battery = '{}%'.format(battery_capacity)
+    # Get Date:
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+    # Print Status:
+    print('Vol: {} | Bri: {} | Bat: {} | {}'.format(
+        volume, brightness, battery, date), flush=True)
+    # Hibernate at battery <= 5, notify at battery <= 10:
+    with open('/sys/class/power_supply/BAT0/status') as f:
+        battery_status = f.readline().strip()
+    if battery_status == 'Discharging':
+        if battery_capacity <= 5:
+            subprocess.run(['systemctl', 'hibernate'])
+        elif battery_capacity <= 15:
+            if battery_capacity < battery_notified:
+                subprocess.run(['notify-send',
+                                '--urgency=critical',
+                                'Battery low!',
+                                'Battery is at {}%.'.format(battery_capacity)])
+                battery_notified = battery_capacity
+    else:
+        battery_notified = 100
+    # Wait 1 second:
+    time.sleep(1)
