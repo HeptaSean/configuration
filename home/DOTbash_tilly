@@ -1,0 +1,3 @@
+# Prompt with hardcoded machine name:
+# ===================================
+PS1="$white[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$red\$ec\" || echo \"$green\$ec\")$white]-[$yellow\t$white]-[${cyan}tilly$white]\$(ps1_venv)-[$magenta\$ps1_path$white]\$(ps1_fossil)\$(ps1_git)\n$white\\\$ $reset"

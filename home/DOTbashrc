@@ -1,4 +1,5 @@
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything:
+# ================================================
 [[ $- != *i* ]] && return
 
 # Various bash-specific settings:
@@ -7,41 +8,13 @@ shopt -s checkwinsize
 shopt -s histappend
 unset HISTFILE
 
-# Set colours if on virtual console:
-# ==================================
-if [ "$TERM" = "linux" ]; then
-    echo -en "\\e]P0242424"  # dark black
-    echo -en "\\e]P1DB6F6F"  # dark red
-    echo -en "\\e]P26FDB6F"  # dark green
-    echo -en "\\e]P3B7B74B"  # dark yellow
-    echo -en "\\e]P46F6FDB"  # dark blue
-    echo -en "\\e]P5B74BB7"  # dark magenta
-    echo -en "\\e]P64BB7B7"  # dark cyan
-    echo -en "\\e]P7939393"  # dark white
-    echo -en "\\e]P8484848"  # light black
-    echo -en "\\e]P9FF9393"  # light red
-    echo -en "\\e]PA93FF93"  # light green
-    echo -en "\\e]PBDBDB6F"  # light yellow
-    echo -en "\\e]PC9393FF"  # light blue
-    echo -en "\\e]PDDB6FDB"  # light magenta
-    echo -en "\\e]PE6FDBDB"  # light cyan
-    echo -en "\\e]PFB7B7B7"  # light white
-fi
-
 # Standard programs:
 # ==================
-# Arch packages: vim, less, firefox
-# Ubuntu packages: …
-# Termux packages: …
 export EDITOR="vim"
 export PAGER="less"
-export BROWSER="firefox"
 
 # Settings for specific programs (alphabetically):
 # ================================================
-# Arch packages: coreutils, diffutils, grep, less, man-db, util-linux
-# Ubuntu packages: …
-# Termux packages: …
 alias diff="diff --color=always"
 
 alias dmesg="dmesg --human --color=always"
@@ -86,23 +59,17 @@ export LS_COLORS="rs=0:di=34:st=34:ow=34:tw=34:ln=36:or=30;46:mi=30;41:ex=32:su=
 
 export MANPAGER="less --squeeze-blank-lines --LONG-PROMPT +Gg"
 
-if [ "$TERM" = "xterm-termite" ]
-then
-    alias ssh="TERM=xterm-256color ssh"
-fi
-
-alias sudo="sudo -E "
-
 # Prompt:
 # =======
-# Colours for prompt lines, return values, time, user, host and workdir:
-sq_c='\[\e[1;37m\]'     # light grey
-ret_nok='\[\e[1;31m\]'  # light red
-ret_ok='\[\e[1;32m\]'   # light green
-ti_c='\[\e[1;33m\]'     # light yellow
-uh_c='\[\e[1;36m\]'     # light cyan
-di_c='\[\e[1;35m\]'     # light magenta
-end_c='\[\e[0m\]'
+# Colours for prompt:
+red='\[\e[1;31m\]'      # light red
+green='\[\e[1;32m\]'    # light green
+yellow='\[\e[1;33m\]'   # light yellow
+blue='\[\e[1;34m\]'     # light blue
+magenta='\[\e[1;35m\]'  # light magenta
+cyan='\[\e[1;36m\]'     # light cyan
+white='\[\e[1;37m\]'    # light grey
+reset='\[\e[0m\]'
 # Function for virtual environment:
 ps1_venv() {
     if [ -n "$VIRTUAL_ENV" ]
@@ -169,5 +136,15 @@ else
     }
 fi
 # And finally the whole prompt:
-PS1="$sq_c[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$ret_nok\$ec\" || echo \"$ret_ok\$ec\")$sq_c]-[$ti_c\t$sq_c]-[$uh_c\u@\h$sq_c]\$(ps1_venv)-[$di_c\$ps1_path$sq_c]\$(ps1_fossil)\$(ps1_git)\n$sq_c\\\$ $end_c"
-unset sq_c ret_nok ret_ok ti_c uh_c di_c end_c
+PS1="$white[\$(ec=\$?; [[ \$ec != 0 ]] && echo \"$red\$ec\" || echo \"$green\$ec\")$white]-[$yellow\t$white]-[$cyan\u@\h$white]\$(ps1_venv)-[$magenta\$ps1_path$white]\$(ps1_fossil)\$(ps1_git)\n$white\\\$ $reset"
+
+# If .bash_local exists, source it:
+# =================================
+if [ -f ~/.bash_local ]
+then
+    source ~/.bash_local
+fi
+
+# Unset the colours:
+# ==================
+unset red green yellow blue magenta cyan white reset

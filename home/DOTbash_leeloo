@@ -1,0 +1,29 @@
+# Set colours if on virtual console:
+# ==================================
+if [ "$TERM" = "linux" ]
+then
+    echo -en "\\e]P0242424"  # dark black
+    echo -en "\\e]P1DB6F6F"  # dark red
+    echo -en "\\e]P26FDB6F"  # dark green
+    echo -en "\\e]P3B7B74B"  # dark yellow
+    echo -en "\\e]P46F6FDB"  # dark blue
+    echo -en "\\e]P5B74BB7"  # dark magenta
+    echo -en "\\e]P64BB7B7"  # dark cyan
+    echo -en "\\e]P7939393"  # dark white
+    echo -en "\\e]P8484848"  # light black
+    echo -en "\\e]P9FF9393"  # light red
+    echo -en "\\e]PA93FF93"  # light green
+    echo -en "\\e]PBDBDB6F"  # light yellow
+    echo -en "\\e]PC9393FF"  # light blue
+    echo -en "\\e]PDDB6FDB"  # light magenta
+    echo -en "\\e]PE6FDBDB"  # light cyan
+    echo -en "\\e]PFB7B7B7"  # light white
+fi
+
+# Host-specific program settings:
+# ===============================
+export BROWSER="firefox"
+
+alias ssh="TERM=xterm-256color ssh"
+
+alias sudo="sudo -E "

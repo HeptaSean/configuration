@@ -1,0 +1,3 @@
+# Host-specific program settings:
+# ===============================
+alias sudo="sudo -E "
