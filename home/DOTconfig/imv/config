@@ -1,3 +1,3 @@
 [binds]
-<Shift+x> = exec rm "$imv_current_file"
-<Shift+r> = exec mogrify -rotate 90 "$imv_current_file"
+<Shift+X> = exec rm "$imv_current_file"
+<Shift+R> = exec mogrify -rotate 90 "$imv_current_file"
