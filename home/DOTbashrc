@@ -59,6 +59,8 @@ export LS_COLORS="rs=0:di=34:st=34:ow=34:tw=34:ln=36:or=30;46:mi=30;41:ex=32:su=
 
 export MANPAGER="less --squeeze-blank-lines --LONG-PROMPT +Gg"
 
+export TIME_STYLE="long-iso"
+
 # Prompt:
 # =======
 # Colours for prompt:
