@@ -1,0 +1,2 @@
+mode = mixed
+viewer_pdf = zathura %s &
