@@ -24,6 +24,10 @@ fi
 # ===============================
 export BROWSER="firefox"
 
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export SAL_USE_VCLPLUGIN="gtk3"
+
 alias ssh="TERM=xterm-256color ssh"
 
 alias sudo="sudo -E "

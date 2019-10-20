@@ -101,7 +101,7 @@ bindsym Mod4+minus scratchpad show
 bar {
     position top
     status_command /home/sean/.config/sway/status
-    font Cousine 12
+    font DejaVu Sans Bold 11
     colors {
         background #242424
         statusline #939393

@@ -1,5 +1,5 @@
 [options]
-font = Cousine 12
+font = DejaVu Sans Mono 11
 
 [colors]
 background = rgba(0, 0, 0, 0.5)

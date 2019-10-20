@@ -59,11 +59,13 @@ wpa_supplicant
 zip
 
 [Wayland Base System]
+adwaita-qt
 glew-wayland
 grim
 libnotify
 mako
 qt5-wayland
+qt5ct
 slurp
 sway-git
 swaylock-git
