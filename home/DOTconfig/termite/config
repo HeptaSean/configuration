@@ -2,9 +2,18 @@
 font = DejaVu Sans Mono 11
 
 [colors]
-background = rgba(0, 0, 0, 0.5)
-foreground = #939393
+# Sum of 3*24 = 6C = 108:
+background = rgba(36, 36, 36, 0.5)
+cursor_foreground = #242424
 color0  = #242424
+
+# Sum of 3*48 = D8 = 216:
+color8  = #484848
+
+# Sum of 3*6F = 14D = 333:
+foreground_dim = #6F6F6F
+
+# Sum of 3*93 = 2*6F + DB = 4B + 2*B7 = 1B9 = 441:
 color1  = #DB6F6F
 color2  = #6FDB6F
 color3  = #B7B74B
@@ -12,7 +21,9 @@ color4  = #6F6FDB
 color5  = #B74BB7
 color6  = #4BB7B7
 color7  = #939393
-color8  = #484848
+foreground = #939393
+
+# Sum of 3*B7 = 2*93 + FF = 6F + 2*DB = 225 = 549:
 color9  = #FF9393
 color10 = #93FF93
 color11 = #DBDB6F
@@ -20,3 +31,5 @@ color12 = #9393FF
 color13 = #DB6FDB
 color14 = #6FDBDB
 color15 = #B7B7B7
+foreground_bold = #B7B7B7
+cursor = #B7B7B7
