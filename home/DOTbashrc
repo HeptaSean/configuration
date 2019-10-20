@@ -13,30 +13,8 @@ unset HISTFILE
 export EDITOR="vim"
 export PAGER="less"
 
-# Settings for specific programs (alphabetically):
-# ================================================
-alias diff="diff --color=always"
-
-alias dmesg="dmesg --human --color=always"
-
-alias grep="grep --color=always"
-export GREP_COLORS="mt=07;33:fn=35:ln=36:bn=36:se=34"
-# mt – matching text: reverse dark yellow
-# fn – file name: dark magenta
-# ln – line number: dark cyan
-# bn – byte number: dark cyan
-# se – separators: dark blue
-
-export LESS="--RAW-CONTROL-CHARS --LONG-PROMPT"
-export LESSHISTFILE="-"
-export LESS_TERMCAP_mb=$'\E[31m'      # blink start: dark red
-export LESS_TERMCAP_md=$'\E[36m'      # bold start: dark cyan
-export LESS_TERMCAP_me=$'\E[0m'       # blink, bold, underline end
-export LESS_TERMCAP_us=$'\E[34m'      # underline start: dark blue
-export LESS_TERMCAP_ue=$'\E[0m'       # underline end
-export LESS_TERMCAP_so=$'\E[7;33m'    # standout start: reverse dark yellow
-export LESS_TERMCAP_se=$'\E[0m'       # standout end
-
+# Settings for specific programs:
+# ===============================
 alias ls="ls --classify --color=always"
 export LS_COLORS="rs=0:di=34:st=34:ow=34:tw=34:ln=36:or=30;46:mi=30;41:ex=32:su=31:sg=31:ca=32:pi=33:so=33:do=33:bd=33:cd=33"
 # rs – reset
@@ -57,9 +35,33 @@ export LS_COLORS="rs=0:di=34:st=34:ow=34:tw=34:ln=36:or=30;46:mi=30;41:ex=32:su=
 # bd – block device: reverse dark yellow
 # cd – character device: reverse dark yellow
 
+export TIME_STYLE="long-iso"
+
+alias grep="grep --color=always"
+export GREP_COLORS="mt=07;33:fn=35:ln=36:bn=36:se=34"
+# mt – matching text: reverse dark yellow
+# fn – file name: dark magenta
+# ln – line number: dark cyan
+# bn – byte number: dark cyan
+# se – separators: dark blue
+
+alias diff="diff --color=always"
+
+alias dmesg="dmesg --human --color=always"
+
+export LESS="--RAW-CONTROL-CHARS --LONG-PROMPT"
+export LESSHISTFILE="-"
+export LESS_TERMCAP_mb=$'\E[31m'      # blink start: dark red
+export LESS_TERMCAP_md=$'\E[36m'      # bold start: dark cyan
+export LESS_TERMCAP_me=$'\E[0m'       # blink, bold, underline end
+export LESS_TERMCAP_us=$'\E[34m'      # underline start: dark blue
+export LESS_TERMCAP_ue=$'\E[0m'       # underline end
+export LESS_TERMCAP_so=$'\E[7;33m'    # standout start: reverse dark yellow
+export LESS_TERMCAP_se=$'\E[0m'       # standout end
+
 export MANPAGER="less --squeeze-blank-lines --LONG-PROMPT +Gg"
 
-export TIME_STYLE="long-iso"
+alias glances="glances --disable-bg"
 
 # Prompt:
 # =======
