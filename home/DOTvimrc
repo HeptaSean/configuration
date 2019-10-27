@@ -47,4 +47,4 @@ set statusline+=%(\ %m%)                    " modified?
 set laststatus=2           " always show status line
 syntax on                  " turn syntax highlighting on
 colorscheme hepta
-set term=screen-256color   " set term for tmux
+"set term=screen-256color   " set term for tmux

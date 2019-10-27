@@ -70,6 +70,7 @@ slurp
 sway-git
 swaylock-git
 termite
+wl-clipboard
 
 [Desktop Applications]
 aspell

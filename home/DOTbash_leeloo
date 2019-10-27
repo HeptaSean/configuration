@@ -24,6 +24,7 @@ fi
 # ===============================
 export BROWSER="firefox"
 
+export QT_QPA_PLATFORM="wayland"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 alias ssh="TERM=xterm-256color ssh"
